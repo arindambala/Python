@@ -8,3 +8,5 @@ def get_random_password_string(length):
     password = ''.join(random.choice(password_characters) for i in range(length))
     
     print ("Your password: ", password)
+
+get_random_password_string(10)
