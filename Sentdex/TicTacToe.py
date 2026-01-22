@@ -113,6 +113,17 @@ while turn:
 
 ''' import itertools # REFACTORED
 
+from colorama import Fore, Style, init
+
+init()
+
+# ---------------- Display ----------------
+# PLAYER_SYMBOLS = {
+#     0: ' ', # Empty
+#     1: Fore.MAGENTA + 'X' + Style.RESET_ALL,
+#     2: Fore.CYAN + 'O' + Style.RESET_ALL
+# }
+
 # ---------------- Victory Check ----------------
 def victory(matx):
     def all_cases(ll):
