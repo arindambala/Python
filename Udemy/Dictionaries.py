@@ -52,3 +52,33 @@ travel_logged = {
 }
 
 print(travel_logged['Germany']["Cities Visited"][0]) # Stuttgart '''
+
+def the_highest_bidder(bids_dict):
+    won = ""
+    highest_bid = 0
+    for bidder in bids_dict:
+        bid_amount = bids_dict[bidder]
+        
+        if bid_amount > highest_bid:
+            highest_bid = bid_amount
+            won = bidder
+    
+    print(f"\n\n____ The highest bidder was {won} with a bid of ${highest_bid} ! ____")
+
+bids = {} # Empty Dictionary
+
+bid_continue = True
+while bid_continue:
+    name = input("\n\nThy name? : ")
+    price = int(input("\nThy bid? : $"))
+    bids[name] = price
+    
+    should_continue = input("\n\nAny more bidders? (yes | no) : ").lower()
+    
+    if should_continue == 'no':
+        bid_continue = False
+        the_highest_bidder(bids)
+    elif should_continue == 'yes':
+        print("\n" * 3)
+    else:
+        print("\n\n____ INVALID! Please provide the appropriate option! ____")
