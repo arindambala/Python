@@ -4,6 +4,7 @@
 print(f"\n---- Welcome to the Calculator Application! ----")
 
 def format_name(first_name, last_name): # title()
+    """A function that takes the first & last name, inputted by a user and returns the appropriate formatted name""" # Docstring
     if first_name == "" or last_name == "":
         return
     
