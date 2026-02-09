@@ -1,7 +1,7 @@
 # Day 10 - 100 Days of Code
 
 # Calculator
-print(f"\n---- Welcome to the Calculator Application! ----")
+# print(f"\n---- Welcome to the Calculator Application! ----")
 
 def format_name(first_name, last_name): # title()
     """A function that takes the first & last name, inputted by a user and returns the appropriate formatted name""" # Docstring
