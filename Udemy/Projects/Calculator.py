@@ -42,13 +42,22 @@ operations = {
 }
 # print(operations['*'](3, 7)) # 21
 
+should_accumulate = True
 first_number = float(input("\nWhat's the number? : "))
-for symbol in operations:
-    print(symbol)
-calculation = input("\nChoose the required operation  (+ | - | * | /) : ")
-second_number = float(input("\nWhat's the second number? : "))
 
-result = operations[calculation](first_number, second_number)
-print(f"\n____ RESULT : {first_number} {calculation} {second_number} = {result} ____")
+while should_accumulate:
+    for symbol in operations:
+        print(symbol)
+    calculation = input("\nChoose the required operation  (+ | - | * | /) : ")
+    second_number = float(input("\nWhat's the second number? : "))
 
-# choice = 
+    result = operations[calculation](first_number, second_number)
+    print(f"\n____ RESULT : {first_number} {calculation} {second_number} = {result} ____")
+
+    choice = input(f"\n\nWhat's the choice -  to continue calculating with {result}, or to start a new calculation? (y | n) : ").lower()
+
+    if choice == 'y':
+        first_number = result
+    else:
+        should_accumulate = False
+        print(f"\n\n____ FINAL RESULT : {result} - Thank you for the calculations! Calculator says Bubye! ____") # print("\n" * 5)
