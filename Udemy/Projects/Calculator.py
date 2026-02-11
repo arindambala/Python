@@ -1,19 +1,20 @@
 # Day 10 - 100 Days of Code
 
-#  _____________________
-# |  _________________  |
-# | | JO           0. | |
-# | |_________________| |
-# |  ___ ___ ___   ___  |
-# | | 7 | 8 | 9 | | + | |
-# | |___|___|___| |___| |
-# | | 4 | 5 | 6 | | - | |
-# | |___|___|___| |___| |
-# | | 1 | 2 | 3 | | x | |
-# | |___|___|___| |___| |
-# | | . | 0 | = | | / | |
-# | |___|___|___| |___| |
-# |_____________________|
+CALC_LOGO = '''
+                _____________________
+                |  _________________  |
+                | | JO           0. | |
+                | |_________________| |
+                |  ___ ___ ___   ___  |
+                | | 7 | 8 | 9 | | + | |
+                | |___|___|___| |___| |
+                | | 4 | 5 | 6 | | - | |
+                | |___|___|___| |___| |
+                | | 1 | 2 | 3 | | x | |
+                | |___|___|___| |___| |
+                | | . | 0 | = | | / | |
+                | |___|___|___| |___| |
+                |_____________________| '''
 
 # (Regular Calculator)
 
@@ -42,22 +43,28 @@ operations = {
 }
 # print(operations['*'](3, 7)) # 21
 
-should_accumulate = True
-first_number = float(input("\nWhat's the number? : "))
+def calculator():
+    print(CALC_LOGO)
+    should_accumulate = True
+    first_number = float(input("\nWhat's the number? : "))
 
-while should_accumulate:
-    for symbol in operations:
-        print(symbol)
-    calculation = input("\nChoose the required operation  (+ | - | * | /) : ")
-    second_number = float(input("\nWhat's the second number? : "))
+    while should_accumulate:
+        for symbol in operations:
+            print(symbol)
+        calculation = input("\nChoose the required operation  (+ | - | * | /) : ")
+        second_number = float(input("\nWhat's the second number? : "))
 
-    result = operations[calculation](first_number, second_number)
-    print(f"\n____ RESULT : {first_number} {calculation} {second_number} = {result} ____")
+        result = operations[calculation](first_number, second_number)
+        print(f"\n____ RESULT : {first_number} {calculation} {second_number} = {result} ____")
 
-    choice = input(f"\n\nWhat's the choice -  to continue calculating with {result}, or to start a new calculation? (y | n) : ").lower()
+        choice = input(f"\n\nWhat's the choice -  to continue calculating with {result}, or to start a new calculation? (y | n) : ").lower()
 
-    if choice == 'y':
-        first_number = result
-    else:
-        should_accumulate = False
-        print(f"\n\n____ FINAL RESULT : {result} - Thank you for the calculations! Calculator says Bubye! ____") # print("\n" * 5)
+        if choice == 'y':
+            first_number = result
+
+        else:
+            should_accumulate = False
+            print(f"\n\n____ FINAL RESULT : {result} - Thank you for the calculations! Calculator says Bubye! ____") # print("\n" * 5)
+            return # calculator() # Recursion
+
+calculator()
