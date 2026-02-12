@@ -61,10 +61,11 @@ def calculator():
 
         if choice == 'y':
             first_number = result
-
         else:
             should_accumulate = False
             print(f"\n\n____ FINAL RESULT : {result} - Thank you for the calculations! Calculator says Bubye! ____") # print("\n" * 5)
             return # calculator() # Recursion
+        # elif choice == 'n':
+        #     print("\nINVALID! Please enter either 'y' or 'n'!")
 
 calculator()
