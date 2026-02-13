@@ -1,4 +1,4 @@
-# Day 10 - 100 Days of Code
+# Day 11 - 100 Days of Code
 
 CALC_LOGO = '''
                 _____________________
