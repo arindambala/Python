@@ -3,4 +3,4 @@
 # Capstone Project : Blackjack
 print(f"\n---- Welcome to Blackjack! ----\n")
 
-# continued
+# continued : Check the code with - 'class'
