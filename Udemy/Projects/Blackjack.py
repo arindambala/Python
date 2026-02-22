@@ -3,5 +3,7 @@
 # Capstone Project : Blackjack
 print(f"\n---- Welcome to Blackjack! ----\n")
 
+print("\n Hand : Card")
+
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
