@@ -9,5 +9,7 @@ print("\n Card - Rank : ")
 # Use a dictionary - Card Values w.r.t Ranks
 dict = {'A': 10, 'K' : 10, 'Q' : 10, 'J' : 10} # Face cards // Other cards | Same as the number - {1, 2, 3,...}
 
+# With 'class' | Without 'class'
+
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
