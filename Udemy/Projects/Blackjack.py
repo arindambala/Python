@@ -12,6 +12,7 @@ dict = {'A': 10, 'K' : 10, 'Q' : 10, 'J' : 10} # Face cards // Other cards | Sam
 # With 'class' | Without 'class' - Already committed on other program
 
 play = 0 # Rank - Value ? Player : Dealer
+play_count = 0, dealer_play = 0, dealer_hold = 0
 
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
