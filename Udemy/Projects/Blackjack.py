@@ -12,7 +12,7 @@ dict = {'A': 10, 'K' : 10, 'Q' : 10, 'J' : 10} # Face cards // Other cards | Sam
 # With 'class' | Without 'class' - Already committed on other program
 
 play = 0 # Rank - Value ? Player : Dealer
-play_count = 0, dealer_play = 0, dealer_hold = 0 # Count number of times play took place also
+play_count = 0, dealer_play = 0, dealer_hold = 0 # Count number of times play took place also | Print if required
 
 # card & deck classes
 card_dealer, card_shuffler = 0, 0
