@@ -16,6 +16,7 @@ play_count = 0, dealer_play = 0, dealer_hold = 0 # Count number of times play to
 
 # card & deck classes
 card_dealer, card_shuffler = 0, 0
+# deck class to be added | shuffler class to be added
 
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
