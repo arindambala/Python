@@ -19,6 +19,7 @@ card_dealer, card_shuffler = 0, 0
 # deck class to be added | shuffler class to be added
 
 suit = 0 # Add random module
+# Random selection gives the illusion of a real blackjack game
 
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
