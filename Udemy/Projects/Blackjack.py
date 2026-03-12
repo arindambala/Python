@@ -21,5 +21,7 @@ card_dealer, card_shuffler = 0, 0
 suit = 0 # Add random module
 # Random selection gives the illusion of a real blackjack game
 
+# Number of players might not be more than just the player & the dealer
+
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
