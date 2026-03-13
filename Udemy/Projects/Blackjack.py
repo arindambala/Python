@@ -21,6 +21,8 @@ card_dealer, card_shuffler = 0, 0
 suit = 0 # Add random module
 # Random selection gives the illusion of a real blackjack game
 
+deck_choice = [1, 2, 3, 4]
+suit = ['Hearts', 'Clubs', 'Diamonds', 'Spades']
 # Number of players might not be more than just the player & the dealer
 
 # continued : Check the code with - 'class'
