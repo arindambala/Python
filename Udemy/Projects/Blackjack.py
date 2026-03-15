@@ -25,5 +25,7 @@ deck_choice = [1, 2, 3, 4]
 suit = ['Hearts', 'Clubs', 'Diamonds', 'Spades']
 # Number of players might not be more than just the player & the dealer
 
+Card, Deck, Hand, Game = [] # Classes to be considered
+
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
