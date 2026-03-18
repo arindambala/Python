@@ -28,5 +28,7 @@ suit = ['Hearts', 'Clubs', 'Diamonds', 'Spades']
 Card, Deck, Hand, Game = [] # Classes to be considered
 # Set suit class - init main for Game class? - Yes | Win & Play functions tobe implemented
 
+# Flowchart - Contextual
+
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
