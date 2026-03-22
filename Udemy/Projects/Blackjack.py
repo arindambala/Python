@@ -26,10 +26,10 @@ suit = ['Hearts', 'Clubs', 'Diamonds', 'Spades']
 # Number of players might not be more than just the player & the dealer
 
 Card, Deck, Hand, Game = [] # Classes to be considered
-# Set suit class - init main for Game class? - Yes | Win & Play functions tobe implemented
+# Set suit class - init main for Game class? - Yes | Win & Play functions to be implemented
 
 # Flowchart - Contextual | Simple or Detailed? | Control Flow
-play_count = 0 # Increment by prompt
+play_count = 0 # Increment by prompt | Ask for replay
 
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
