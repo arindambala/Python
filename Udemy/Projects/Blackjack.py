@@ -31,5 +31,7 @@ Card, Deck, Hand, Game = [] # Classes to be considered
 # Flowchart - Contextual | Simple or Detailed? | Control Flow
 play_count = 0 # Increment by prompt | Ask for replay
 
+# Functions to be used - card_deal(), card_shuffle(), play()
+
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
