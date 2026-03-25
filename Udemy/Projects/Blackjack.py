@@ -29,7 +29,7 @@ Card, Deck, Hand, Game = [] # Classes to be considered
 # Set suit class - init main for Game class? - Yes | Win & Play functions to be implemented
 
 # Flowchart - Contextual | Simple or Detailed? | Control Flow
-play_count = 0 # Increment by prompt | Ask for replay
+play_count = 0 # Increment by prompt | Ask for replay | Output last state
 
 # Functions to be used - card_deal(), card_shuffle(), play() | User Choice
 
