@@ -33,5 +33,9 @@ play_count = 0 # Increment by prompt | Ask for replay | Output last state
 
 # Functions to be used - card_deal(), card_shuffle(), play() | User Choice
 
+class victory_check:
+    while True:
+        print("Winner? ")
+
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
