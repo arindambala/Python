@@ -36,6 +36,7 @@ play_count = 0 # Increment by prompt | Ask for replay | Output last state
 class victory_check:
     while True:
         print("Winner? ")
+        # if | elif | else
 
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
