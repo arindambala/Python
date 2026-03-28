@@ -38,5 +38,8 @@ class victory_check:
         print("Winner? ")
         # if | elif | else
 
+        # if not game_over(): | else:
+    # start = Game() | start.play()
+
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
