@@ -41,5 +41,7 @@ class victory_check:
         # if not game_over(): | else:
     # start = Game() | start.play()
 
+    # if player_val > dealer_val : WIN | elif dealer_val > player_val : LOSS | else DRAW
+
 # continued : Check the code with - 'class'
 # commit - Twenty One | FreeCodeCamp - YouTube
