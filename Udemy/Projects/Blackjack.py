@@ -28,6 +28,13 @@ suit = ['Hearts', 'Clubs', 'Diamonds', 'Spades']
 Card, Deck, Hand, Game = [] # Classes to be considered
 # Set suit class - init main for Game class? - Yes | Win & Play functions to be implemented
 
+class Card:
+    def __init__(self, suit, rank):
+        self.suit = suit
+        self.rank = rank
+    def __str__(self):
+        return (f"{self.rank['Rank']} of {self.suit}")
+
 # Flowchart - Contextual | Simple or Detailed? | Control Flow
 play_count = 0 # Increment by prompt | Ask for replay | Output last state
 
