@@ -35,6 +35,10 @@ class Card:
     def __str__(self):
         return (f"{self.rank['Rank']} of {self.suit}")
 
+class Deck:
+    def __init__(self):
+        self.cards = []
+
 # Flowchart - Contextual | Simple or Detailed? | Control Flow
 play_count = 0 # Increment by prompt | Ask for replay | Output last state
 
