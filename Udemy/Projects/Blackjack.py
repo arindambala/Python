@@ -38,6 +38,10 @@ class Card:
 class Deck:
     def __init__(self):
         self.cards = []
+        suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades']
+        
+        for suit in suits:
+            self.cards.append(Card(suit))
 
 # Flowchart - Contextual | Simple or Detailed? | Control Flow
 play_count = 0 # Increment by prompt | Ask for replay | Output last state
