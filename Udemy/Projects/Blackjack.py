@@ -1,5 +1,7 @@
 # Day 12 - 100 Days of Code
 
+import random
+
 # Capstone Project : Blackjack
 print(f"\n---- Welcome to Blackjack! ----\n")
 
@@ -42,6 +44,10 @@ class Deck:
         
         for suit in suits:
             self.cards.append(Card(suit))
+    
+    def card_shuffler(self):
+        if (len(self.cards) > 1):
+            random.shuffle(self.cards)
 
 # Flowchart - Contextual | Simple or Detailed? | Control Flow
 play_count = 0 # Increment by prompt | Ask for replay | Output last state
