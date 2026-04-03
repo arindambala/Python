@@ -48,6 +48,14 @@ class Deck:
     def card_shuffler(self):
         if (len(self.cards) > 1):
             random.shuffle(self.cards)
+    
+    def card_deal(self, number):
+        cards_dealt = []
+        for _ in range(number):
+            if (len(self.cards) > 0):
+                card = self.card.pop()
+                cards_dealt.append(card)
+        return cards_dealt
 
 # Flowchart - Contextual | Simple or Detailed? | Control Flow
 play_count = 0 # Increment by prompt | Ask for replay | Output last state
