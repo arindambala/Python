@@ -57,6 +57,12 @@ class Deck:
                 cards_dealt.append(card)
         return cards_dealt
 
+class Hand:
+    def __init__(self, dealer = False):
+        self.cards = []
+        self.value = 0
+        self.dealer = dealer
+
 # Flowchart - Contextual | Simple or Detailed? | Control Flow
 play_count = 0 # Increment by prompt | Ask for replay | Output last state
 
