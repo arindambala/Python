@@ -41,6 +41,21 @@ class Deck:
     def __init__(self):
         self.cards = []
         suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades']
+        ranks = [
+                {'Rank': 'A', 'Value': 11},  
+                {'Rank': '2', 'Value': 2},
+                {'Rank': '3', 'Value': 3},
+                {'Rank': '4', 'Value': 4},
+                {'Rank': '5', 'Value': 5},
+                {'Rank': '6', 'Value': 6},
+                {'Rank': '7', 'Value': 7},
+                {'Rank': '8', 'Value': 8},
+                {'Rank': '9', 'Value': 9},
+                {'Rank': '10', 'Value':10},
+                {'Rank': 'J', 'Value': 10},
+                {'Rank': 'Q', 'Value': 10},
+                {'Rank': 'K', 'Value': 10},
+            ]
         
         for suit in suits:
             self.cards.append(Card(suit))
@@ -62,6 +77,22 @@ class Hand:
         self.cards = []
         self.value = 0
         self.dealer = dealer
+    
+    def add_card(self, card_list):
+        self.cards.extend(card_list)
+    
+    def calc_value(self):
+        self.value = 0
+        has_ace = False
+        
+        for card in self.cards:
+            card_value = int(card.rank['Value'])
+            self.value += card_value
+            if card.rank['Rank'] == 'A':
+                has_ace = True
+        
+        if has_ace and self.value > 21:
+            self.value -= 10
 
 # Flowchart - Contextual | Simple or Detailed? | Control Flow
 play_count = 0 # Increment by prompt | Ask for replay | Output last state
