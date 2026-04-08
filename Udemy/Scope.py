@@ -39,7 +39,7 @@ def game():
     # print(GUESSNUMLOGO)
     print(f"\n---- What number between 1 & 100 has been thought of? ----\n")
     num = randint(1, 100)
-    print(f"The guessed number : {num}")
+    # print(f"The guessed number : {num}")
 
     turns = set_diff()
 
