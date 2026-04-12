@@ -4,3 +4,4 @@
 print(f"\n---- Object Oriented Programming ----\n")
 
 # Classes & Objects
+# Class - Blueprint / Template to create objects || Object - Instance of a class
