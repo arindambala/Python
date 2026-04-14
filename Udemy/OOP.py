@@ -6,4 +6,5 @@ print(f"\n---- Object Oriented Programming ----\n")
 # Classes & Objects
 # Class - Blueprint / Template to create objects || Object - Instance of a class
 
-# class Deck: ( _______ )
+# class Deck:
+    # def __init__(self, dealer = False)
