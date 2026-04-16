@@ -10,3 +10,6 @@ print(f"\n---- Object Oriented Programming ----\n")
     # def __init__(self, dealer = False):
     # self.card = card
     # self.dealer = dealer
+    
+    # def add_card(self, card_list):
+    # self.cards.extend(card_list)
