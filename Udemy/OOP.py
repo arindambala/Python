@@ -13,3 +13,7 @@ print(f"\n---- Object Oriented Programming ----\n")
     
     # def add_card(self, card_list):
     # self.cards.extend(card_list)
+    
+    # def calc_value(self):
+    # self.value = 0
+    # has_ace = False
