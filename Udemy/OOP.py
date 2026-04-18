@@ -17,3 +17,6 @@ print(f"\n---- Object Oriented Programming ----\n")
     # def calc_value(self):
     # self.value = 0
     # has_ace = False
+    
+    # if has_ace and self.value > 21:
+        # self.value -= 10
