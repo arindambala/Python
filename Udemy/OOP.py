@@ -18,5 +18,11 @@ print(f"\n---- Object Oriented Programming ----\n")
     # self.value = 0
     # has_ace = False
     
+    # for card in self.cards:
+        # card_value = int(card.rank['Value'])
+        # self.value += card_value
+        # if card.rank['Rank'] == 'A':
+            # has_ace = True
+    
     # if has_ace and self.value > 21:
         # self.value -= 10
