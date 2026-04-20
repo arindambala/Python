@@ -26,3 +26,7 @@ print(f"\n---- Object Oriented Programming ----\n")
     
     # if has_ace and self.value > 21:
         # self.value -= 10
+    
+    # def get_value(self):
+        # self.calc_value()
+        # return self.value
