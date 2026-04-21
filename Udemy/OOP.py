@@ -30,3 +30,6 @@ print(f"\n---- Object Oriented Programming ----\n")
     # def get_value(self):
         # self.calc_value()
         # return self.value
+    
+    # def blackJack(self):
+        # return self.get_value() == 21
