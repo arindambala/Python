@@ -34,6 +34,14 @@ print(f"\n---- Object Oriented Programming ----\n")
     # def blackJack(self):
         # return self.get_value() == 21
 
+    # def display(self, show_dealer_cards = False):
+        # print(f'''\n__ {"Dealer's" if self.dealer else "Player's"} Hand : __\n''')
+        # for index, card in enumerate(self.cards):
+            # if index == 0 and self.dealer and not show_dealer_cards and not self.blackJack():
+                # print("Hidden!")
+            # else:
+                # print(card)
+
 # class Game:
     # def play(self):
         # game_number = 0
