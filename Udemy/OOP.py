@@ -41,6 +41,10 @@ print(f"\n---- Object Oriented Programming ----\n")
                 # print("Hidden!")
             # else:
                 # print(card)
+        
+        # if not self.dealer:
+            # print("\nValue : ", self.get_value())
+        # print()
 
 # class Game:
     # def play(self):
