@@ -50,3 +50,9 @@ print(f"\n---- Object Oriented Programming ----\n")
     # def play(self):
         # game_number = 0
         # games_to_play = 0
+        
+        # while games_to_play <= 0:
+            # try:
+                # games_to_play = int(input("\nHow mant times? : "))
+            # except:
+                # print("\nINVAID!")
