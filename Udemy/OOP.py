@@ -71,3 +71,5 @@ print(f"\n---- Object Oriented Programming ----\n")
                 # dealer.add_card(deck.card_deal(1))
             
             # print()
+            # player.display()
+            # dealer.display()
