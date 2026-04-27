@@ -62,3 +62,10 @@ print(f"\n---- Object Oriented Programming ----\n")
             
             # deck = Deck()
             # deck.card_shuffler()
+            
+            # player = Hand()
+            # dealer = Hand(dealer = True)
+            
+            # for _ in range(2):
+                # player.add_card(deck.card_deal(1))
+                # dealer.add_card(deck.card_deal(1))
