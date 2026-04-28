@@ -73,3 +73,6 @@ print(f"\n---- Object Oriented Programming ----\n")
             # print()
             # player.display()
             # dealer.display()
+            
+            # if self.victory_check(player, dealer):
+                # continue
