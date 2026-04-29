@@ -80,3 +80,6 @@ print(f"\n---- Object Oriented Programming ----\n")
             # choice = ''
             # while player.get_value() < 21 and choice not in ['s', 'stand']:
                 # choice = input("\nChoice? (Hit | Stand) : ").lower()
+                # print()
+                # while choice not in ['h', 's', 'hit', 'stand']:
+                    # choice = input("\nChoice must be either 'Hit' or 'Stand' (H | S) : ").lower()
