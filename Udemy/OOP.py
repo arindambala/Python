@@ -93,3 +93,7 @@ print(f"\n---- Object Oriented Programming ----\n")
             
             # player_hand = player.get_value()
             # dealer_hand = dealer.get_value()
+            
+            # while dealer_hand < 17:
+                # dealer.add_card(deck.card_deal(1))
+                # dealer_hand = dealer.get_value()
