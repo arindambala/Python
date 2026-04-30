@@ -87,3 +87,6 @@ print(f"\n---- Object Oriented Programming ----\n")
                 # if choice in ['h', 'hit']:
                     # player.add_card(deck.card_deal(1))
                     # player.display()
+            
+            # if self.victory_check(player, dealer):
+                # continue
