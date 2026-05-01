@@ -102,3 +102,6 @@ print(f"\n---- Object Oriented Programming ----\n")
 
             # if self.victory_check(player, dealer):
                 # continue
+            
+            # print("\n-- Result --\n")
+            # print(f"Player : {player_hand} | Dealer : {dealer_hand}")
