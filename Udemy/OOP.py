@@ -105,3 +105,7 @@ print(f"\n---- Object Oriented Programming ----\n")
             
             # print("\n-- Result --\n")
             # print(f"Player : {player_hand} | Dealer : {dealer_hand}")
+            
+            # self.victory_check(player, dealer, True)
+        
+        # print("\n THANK YOU!! \n")
