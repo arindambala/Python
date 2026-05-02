@@ -76,3 +76,7 @@ print(f"\n---- Object Oriented Programming ----\n")
             
             # if self.victory_check(player, dealer):
                 # continue
+            
+            # choice = ''
+            # while player.get_value() < 21 and choice not in ['s', 'stand']:
+                # choice = input("\nChoice? (Hit | Stand) : ").lower()
