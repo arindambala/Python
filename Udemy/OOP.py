@@ -90,3 +90,6 @@ print(f"\n---- Object Oriented Programming ----\n")
             
             # if self.victory_check(player, dealer):
                 # continue
+            
+            # player_hand = player.get_value()
+            # dealer_hand = dealer.get_value()
