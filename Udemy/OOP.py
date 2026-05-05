@@ -118,3 +118,6 @@ print(f"\n---- Object Oriented Programming ----\n")
             # elif dealer.get_value() > 21:
                 # print("\n Victory! \n")
                 # return True
+            # else:
+                # print("\n Draw! \n")
+                # return True
