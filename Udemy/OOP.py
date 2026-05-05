@@ -109,3 +109,9 @@ print(f"\n---- Object Oriented Programming ----\n")
             # self.victory_check(player, dealer, True)
         
         # print("\n THANK YOU!! \n")
+    
+    # def victory_check(self, player, dealer, game_over = False):
+        # if not game over:
+            # if player.getvalue() > 21:
+                # print("\n Busted! \n")
+                # return True
