@@ -115,3 +115,6 @@ print(f"\n---- Object Oriented Programming ----\n")
             # if player.getvalue() > 21:
                 # print("\n Busted! \n")
                 # return True
+            # elif dealer.get_value() > 21:
+                # print("\n Victory! \n")
+                # return True
