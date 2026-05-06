@@ -131,3 +131,6 @@ print(f"\n---- Object Oriented Programming ----\n")
                 # print("\n Busted! \n")
             # return True
         # return False
+
+# start = Game()
+# start.play()
