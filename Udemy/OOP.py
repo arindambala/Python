@@ -121,3 +121,9 @@ print(f"\n---- Object Oriented Programming ----\n")
             # else:
                 # print("\n Draw! \n")
                 # return True
+        
+        # else:
+        #     if player.get_value() > dealer.get_value():
+        #         print("\n Victory! \n")
+        #     # elif player.get_value() == dealer.get_value():
+                # print("\n Draw! \n")
