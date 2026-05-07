@@ -46,6 +46,11 @@ print(f"\n---- Object Oriented Programming ----\n")
             # print("\nValue : ", self.get_value())
         # print()
 
+'''
+# deck = deck()
+# deck.card_shuffler()
+'''
+
 # class Game:
     # def play(self):
         # game_number = 0
