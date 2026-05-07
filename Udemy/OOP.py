@@ -49,6 +49,10 @@ print(f"\n---- Object Oriented Programming ----\n")
 '''
 # deck = deck()
 # deck.card_shuffler()
+
+# hand = Hand()
+# hand.add_card(deck.card_deal(2))
+# hand.display()
 '''
 
 # class Game:
