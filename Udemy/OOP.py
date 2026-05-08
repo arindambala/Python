@@ -1,5 +1,11 @@
 # Day 16 - 100 Days of Code
 
+'''
+import itertools
+from colorama import Fore, Style, init
+'''
+
+
 # Procedural Programming || Object Oriented Programming (OOP)
 print(f"\n---- Object Oriented Programming ----\n")
 
