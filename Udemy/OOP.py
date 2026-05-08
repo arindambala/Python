@@ -3,6 +3,13 @@
 '''
 import itertools
 from colorama import Fore, Style, init
+
+init()
+
+SYMBOLS = {
+    1. Fore.MAGENTA + 'P' + Style.RESET_ALL,
+    2. Fore.CYAN + 'D' + Style.RESET_ALL
+}
 '''
 
 
