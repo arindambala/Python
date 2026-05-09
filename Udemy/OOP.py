@@ -19,6 +19,15 @@ print(f"\n---- Object Oriented Programming ----\n")
 # Classes & Objects
 # Class - Blueprint / Template to create objects || Object - Instance of a class
 
+'''
+class Card:
+def __init__(self, suit, rank):
+    self.suit, self.rank = suit, rank
+def __str__(self):
+    return f"{self.rank} of {self.suit}"
+'''
+
+
 # class Deck:
     # def __init__(self, dealer = False):
     # self.card = card
