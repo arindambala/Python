@@ -21,10 +21,17 @@ print(f"\n---- Object Oriented Programming ----\n")
 
 '''
 class Card:
-def __init__(self, suit, rank):
-    self.suit, self.rank = suit, rank
-def __str__(self):
-    return f"{self.rank} of {self.suit}"
+    def __init__(self, suit, rank):
+        self.suit, self.rank = suit, rank
+    def __str__(self):
+        return f"{self.rank} of {self.suit}"
+
+class Deck:
+    def __init__(self):
+        self.cards = [Card(s, r) for s in [-] for r in [-]]
+        random.shuffle(self.cards)
+    def deal(self):
+        return self.cards.pop()
 '''
 
 
