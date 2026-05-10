@@ -35,8 +35,14 @@ class Deck:
 
 class Hand:
     def __init__(self, name):
-    self.name = name
-    self.cards = []
+        self.name = name
+        self.cards = []
+
+    def add_card(self, card):
+        self.cards.append(card)
+
+deck = Deck()
+player, dealer = Hand("Player"), Hand("Dealer)
 '''
 
 
