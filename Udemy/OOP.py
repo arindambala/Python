@@ -43,6 +43,13 @@ class Hand:
 
 deck = Deck()
 player, dealer = Hand("Player"), Hand("Dealer)
+
+for _ in range(2):
+    player.add_card(deck.deal())
+    dealer.add_card(deck.deal())
+
+if player.get_score() == 21:
+    print("BlackJack!")
 '''
 
 
