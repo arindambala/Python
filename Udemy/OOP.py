@@ -32,6 +32,11 @@ class Deck:
         random.shuffle(self.cards)
     def deal(self):
         return self.cards.pop()
+
+class Hand:
+    def __init__(self, name):
+    self.name = name
+    self.cards = []
 '''
 
 
