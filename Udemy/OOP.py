@@ -165,6 +165,15 @@ if player.get_score() == 21:
             # self.victory_check(player, dealer, True)
         
         # print("\n THANK YOU!! \n")
+
+'''
+def check_win(player_hand, dealer_hand):
+    p_score = player_hand.get_value()
+    d_score = dealer_hand.get_value()
+
+
+'''
+
     
     # def victory_check(self, player, dealer, game_over = False):
         # if not game over:
