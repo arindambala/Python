@@ -171,10 +171,13 @@ def check_win(player_hand, dealer_hand):
     p_score = player_hand.get_value()
     d_score = dealer_hand.get_value()
 
-
+if p_score > 21: print("Player Bust!")
+elif d_score > 21: print"Dealer Bust!")
+elif p_score > d_score: print("Player Wins!)
+elif d_score > p_score(): print("Dealer Wins!)
+else: print("Draw!")
 '''
 
-    
     # def victory_check(self, player, dealer, game_over = False):
         # if not game over:
             # if player.getvalue() > 21:
