@@ -16,6 +16,13 @@ SYMBOLS = {
 # Procedural Programming || Object Oriented Programming (OOP)
 print(f"\n---- Object Oriented Programming ----\n")
 
+'''
+class Card:
+def __init__(self, rank, suit, color):
+    self.repr = f"{color}{rank}{suit}{Style.RESET_ALL}"
+'''
+
+
 # Classes & Objects
 # Class - Blueprint / Template to create objects || Object - Instance of a class
 
