@@ -18,8 +18,12 @@ print(f"\n---- Object Oriented Programming ----\n")
 
 '''
 class Card:
-def __init__(self, rank, suit, color):
-    self.repr = f"{color}{rank}{suit}{Style.RESET_ALL}"
+    def __init__(self, rank, suit, color):
+        self.repr = f"{color}{rank}{suit}{Style.RESET_ALL}"
+
+class Deck:
+    def __init__(self):
+        self.cards = [f"{r}{s} for r, s in itertools.product('23456789TJQKA', '----')]
 '''
 
 
