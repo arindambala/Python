@@ -12,7 +12,6 @@ SYMBOLS = {
 }
 '''
 
-
 # Procedural Programming || Object Oriented Programming (OOP)
 print(f"\n---- Object Oriented Programming ----\n")
 
@@ -24,8 +23,16 @@ class Card:
 class Deck:
     def __init__(self):
         self.cards = [f"{r}{s} for r, s in itertools.product('23456789TJQKA', '----')]
-'''
 
+class Hand:
+    def __init__(self, name, color):
+        self.name, self.color, self.cards = name, color, []
+    
+    def display(self):
+        print(f"{self.name}: {self.color}{' '.join(self.cards)}{Style.RESET_ALL}")
+
+deck = [Card(r, s, c) for (r, s), c in zip(itertools.product('23456789TJQKA', '----'), itertools.cycle([Fore.RED, Fore.BLACK]))]
+'''
 
 # Classes & Objects
 # Class - Blueprint / Template to create objects || Object - Instance of a class
@@ -62,7 +69,6 @@ for _ in range(2):
 if player.get_score() == 21:
     print("BlackJack!")
 '''
-
 
 # class Deck:
     # def __init__(self, dealer = False):
