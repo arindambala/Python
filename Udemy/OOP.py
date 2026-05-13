@@ -7,8 +7,9 @@ print(f"\n---- Object Oriented Programming ----\n")
 
 bloom = Turtle() # bloom = turtle.Turtle()
 # print(bloom)
-bloom.shape('turtle')
-bloom.color('DarkOrchid')
+bloom.shape('turtle') # Icon
+bloom.color('DarkOrchid') # Icon Colour 
+bloom.forward(100) # Distance X-axis
 
 # Classes & Objects
 # Class - Blueprint / Template to create objects || Object - Instance of a class
