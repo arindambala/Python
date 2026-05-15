@@ -19,7 +19,7 @@ class CashRegister:
 
     def process_coins(self):
         """ Returns the total calculated from inserted coins """
-        print("\n Print insert coins....! \n")
+        print("\n => Print insert coins....! \n")
         for coin in self.COIN_VALUES:
             self.money_received += int(input(f"How many {coin}? : ")) * self.COIN_VALUES[coin]
         return self.money_received
@@ -29,7 +29,7 @@ class CashRegister:
         self.process_coins()
         if self.money_received >= cost:
             change = round(self.money_received - cost, 2)
-            print(f"Here is {self.CURRENCY}{change} in change. ")
+            print(f"\n|> Here is {self.CURRENCY}{change} in change. ")
             self.profit += cost
             self.money_received = 0
             return True
