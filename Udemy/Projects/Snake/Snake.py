@@ -1,6 +1,8 @@
 # Day 20 - 100 Days of Code
 
-from turtle import Turtle, Screen
+from turtle import Screen
+from Body import SnakeBody
+from Move import SnakeMovement
 import time
 
 print(f"\n---- Turt ^ Race ----\n")
@@ -11,8 +13,8 @@ screen.bgcolor('black')
 screen.title('Snake - 2D')
 screen.tracer(0)
 
-pos = [(0, 0), (-20, 0), (-40, 0)]
-body = []
+Snake = SnakeBody()
+control = SnakeMovement(Snake.body)
 
 # body = Turtle(shape='square')
 # body.color('white')
@@ -25,25 +27,17 @@ body = []
 # head.color('white')
 # head.goto(-40, 0)
 
-for part in pos: # Snake Body
-    parts = Turtle('square')
-    parts.color('white')
-    parts.penup()
-    parts.goto(part)
-    body.append(parts)
-
+screen.listen()
+screen.onkey(control.up, 'Up')
+screen.onkey(control.down, 'Down')
+screen.onkey(control.left, 'Left')
+screen.onkey(control.right, 'Right')
 
 play = True
 while play:
     screen.update()
     time.sleep(0.1)
     
-    for limb in range(len(body) - 1, 0, -1): # range(start, stop, step) | range(2, 0, -1)
-        # limb.forward(20)
-        cor_x = body[limb - 1].xcor()
-        cor_y = body[limb - 1].ycor()
-        body[limb].goto(cor_x, cor_y) # Snake Movement
-    body[0].forward(20)
-    # body[0].left(90)
+    control.move()
 
 screen.exitonclick()
