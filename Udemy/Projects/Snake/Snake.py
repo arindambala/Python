@@ -3,6 +3,8 @@
 from turtle import Screen
 from Body import SnakeBody
 from Move import SnakeMovement
+from Food import SnakeFood
+from Score import ScoreBoard
 import time
 
 print(f"\n---- Turt ^ Race ----\n")
@@ -14,7 +16,9 @@ screen.title('Snake - 2D')
 screen.tracer(0)
 
 Snake = SnakeBody()
-control = SnakeMovement(Snake.body)
+Control = SnakeMovement(Snake.body)
+Food = SnakeFood()
+Board = ScoreBoard()
 
 # body = Turtle(shape='square')
 # body.color('white')
@@ -28,16 +32,25 @@ control = SnakeMovement(Snake.body)
 # head.goto(-40, 0)
 
 screen.listen()
-screen.onkey(control.up, 'Up')
-screen.onkey(control.down, 'Down')
-screen.onkey(control.left, 'Left')
-screen.onkey(control.right, 'Right')
+screen.onkey(Control.up, 'Up')
+screen.onkey(Control.down, 'Down')
+screen.onkey(Control.left, 'Left')
+screen.onkey(Control.right, 'Right')
 
 play = True
 while play:
     screen.update()
     time.sleep(0.1)
     
-    control.move()
-
+    Control.move()
+    
+    if Control.head.distance(Food) < 15: # Snake.body[0]
+        # print("NomNomNom")
+        Food.refresh()
+        Board.count_score()
+    
+    if Control.head.xcor() > 280 or Control.head.ycor() > 280 or Control.head.xcor() < -280 or Control.head.ycor() < -280:
+        play = False
+        Board.detect_wall()
+    
 screen.exitonclick()
