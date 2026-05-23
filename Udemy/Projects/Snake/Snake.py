@@ -7,7 +7,7 @@ from Food import SnakeFood
 from Score import ScoreBoard
 import time
 
-print(f"\n---- Turt ^ Race ----\n")
+print(f"\n---- Snake ^ 2D ----\n")
 
 screen = Screen()
 screen.setup(width=600, height=600)
