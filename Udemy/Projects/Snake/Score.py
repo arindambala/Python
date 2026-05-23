@@ -23,8 +23,6 @@ class ScoreBoard(Turtle):
         self.goto(0, 0)
         self.write('GAME OVER !!', align=ALIGNMENT, font=FONT)
     
-    # def detect_tail(self):
-    
     def count_score(self):
         self.score += 1
         self.clear()

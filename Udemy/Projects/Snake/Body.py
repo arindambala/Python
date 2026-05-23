@@ -9,9 +9,15 @@ class SnakeBody:
     
     def create(self):
         for part in POSITIONS: # Snake Body
-            parts = Turtle('square')
-            parts.speed('fastest')
-            parts.color('white')
-            parts.penup()
-            parts.goto(part)
-            self.body.append(parts)
+            self.grow_body(part)
+    
+    def grow_body(self, part):
+        parts = Turtle('square')
+        parts.speed('fastest')
+        parts.color('white')
+        parts.penup()
+        parts.goto(part)
+        self.body.append(parts)
+    
+    def extend_body(self):
+        self.grow_body(self.body[-1].position())
