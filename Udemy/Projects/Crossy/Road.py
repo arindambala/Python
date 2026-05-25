@@ -14,6 +14,7 @@ screen.tracer(0)
 
 turt = Player()
 car = Cars()
+board = ScoreBoard()
 
 screen.listen()
 screen.onkey(turt.move_play, 'Up')
@@ -29,9 +30,11 @@ while play:
     for one_car in car.cars: # Collision
         if one_car.distance(turt) < 20:
             play = False
+            board.end_play()
     
     if turt.road_end(): # Crossed
         turt.road_start()
         car.level_up()
+        board.level_up()
     
 screen.exitonclick()
