@@ -11,8 +11,17 @@ class Player(Turtle):
         self.speed('fastest')
         self.color('DarkOrchid')
         self.penup()
-        self.goto(START_POSITION)
+        self.road_start()
         self.setheading(90)
     
     def move_play(self):
         self.forward(MOVE_DISTANCE)
+    
+    def road_start(self):
+        self.goto(START_POSITION)
+
+    def road_end(self):
+        if self.ycor() > FINISH_LINE:
+            return True
+        else:
+            return False
