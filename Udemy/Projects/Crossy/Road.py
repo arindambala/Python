@@ -29,5 +29,9 @@ while play:
     for one_car in car.cars: # Collision
         if one_car.distance(turt) < 20:
             play = False
-
+    
+    if turt.road_end(): # Crossed
+        turt.road_start()
+        car.level_up()
+    
 screen.exitonclick()
