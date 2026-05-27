@@ -1,0 +1,3 @@
+Read = r
+Append = a
+Write = w
