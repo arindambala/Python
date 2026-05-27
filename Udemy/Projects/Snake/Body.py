@@ -21,3 +21,9 @@ class SnakeBody:
     
     def extend_body(self):
         self.grow_body(self.body[-1].position())
+    
+    def reset_body(self):
+        for part in self.body:
+            part.goto(1000, 1000)
+        self.body.clear()
+        self.create()
