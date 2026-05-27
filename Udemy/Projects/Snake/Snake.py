@@ -52,11 +52,17 @@ while play:
     
     if Control.head.xcor() > 280 or Control.head.ycor() > 280 or Control.head.xcor() < -280 or Control.head.ycor() < -280:
         play = False
+        Board.reset_score()
+        Snake.reset_body()
+        Control.refer_body(Snake.body)
         Board.detect_wall()
     
     for body in Snake.body[1:]: # Slicing
         if Control.head.distance(body) < 10:
             play = False
+            Board.reset_score()
+            Snake.reset_body()
+            Control.refer_body(Snake.body)
             Board.detect_wall()
 
 screen.exitonclick()
