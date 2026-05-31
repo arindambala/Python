@@ -10,6 +10,6 @@ window.minsize(width=500, height=300)
 
 # Components
 label = tkinter.Label(text='Watashi wa label desu :3', font=('Arial', 24, 'italic')) # Label
-label.pack()
+label.pack(side='left', expand=True) # Packer
 
 window.mainloop()
