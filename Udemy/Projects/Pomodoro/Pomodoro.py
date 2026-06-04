@@ -34,4 +34,7 @@ start.grid(row=2, column=0)
 reset = Button(text='Reset', font=(FONT_NAME, 10, 'italic'), highlightthickness=0)
 reset.grid(row=2, column=2)
 
+ticks = Label(text='✔', fg=GREEN, bg=YELLOW)
+ticks.grid(row=3, column=1)
+
 window.mainloop()
