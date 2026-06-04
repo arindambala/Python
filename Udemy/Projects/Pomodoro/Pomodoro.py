@@ -28,4 +28,10 @@ canvas.create_image(100, 112, image = img)
 canvas.create_text(100, 130, text='00:00', fill='white', font=(FONT_NAME, 30, 'bold'))
 canvas.grid(row=1, column=1) # canvas.pack()
 
+start = Button(text='Start', font=(FONT_NAME, 10, 'italic'), highlightthickness=0)
+start.grid(row=2, column=0)
+
+reset = Button(text='Reset', font=(FONT_NAME, 10, 'italic'), highlightthickness=0)
+reset.grid(row=2, column=2)
+
 window.mainloop()
