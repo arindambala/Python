@@ -1,6 +1,7 @@
 # Day 29 - 100 Days of Code
 
 from tkinter import *
+from tkinter import messagebox
 
 print(f"\n---- Password ^ Manager ----\n")
 
@@ -12,10 +13,15 @@ def saveTo():
     mail = user.get()
     key = hole.get()
     
-    with open('data.txt', 'a') as file:
-        file.write(f'{website} | {mail} | {key}\n')
-        web.delete(0, END)
-        hole.delete(0, END)
+    if len(website) == 0 or len(key) == 0:
+        messagebox.showerror(title='INVALID!', message='Empty fields are not allowed.')
+    else:
+        choice = messagebox.askokcancel(title=website, message=f'Details provided: \nEmail: {mail} \nPassword: {key} \nTo be saved?')
+        if choice:
+            with open('data.txt', 'a') as file:
+                file.write(f'{website} | {mail} | {key}\n')
+                web.delete(0, END)
+                hole.delete(0, END)
 
 # -------- UI Setup --------
 window = Tk()
