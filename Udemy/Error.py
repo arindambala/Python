@@ -38,3 +38,9 @@ except: #except FileNotFoundError:
     # file.write(_data_)
 # except KeyError as error:
 #     print(f'{error} : non_existent')
+# else:
+#     content = file.read()
+#     print(content)
+# finally:
+#     file.close()
+#     print('File closed!')
