@@ -25,3 +25,16 @@ val = dict['non_existent']
 with open('a_file.txt') as file:
     file.read()
 '''
+
+# Exception Handling
+
+try:
+    file = open('a_file.txt')
+    a_dict = {'k', 'val'}
+    print(a_dict['inval'])
+except: #except FileNotFoundError:
+    print('INVALID! No such file or directory! :")')
+    # file = open('a_file.txt', 'w')
+    # file.write(_data_)
+# except KeyError as error:
+#     print(f'{error} : non_existent')
