@@ -27,7 +27,7 @@ with open('a_file.txt') as file:
 '''
 
 # Exception Handling
-
+'''
 try:
     file = open('a_file.txt')
     a_dict = {'k', 'val'}
@@ -36,13 +36,24 @@ except: #except FileNotFoundError:
     print('INVALID! No such file or directory! :")')
     # file = open('a_file.txt', 'w')
     # file.write(_data_)
-# except KeyError as error:
-#     print(f'{error} : non_existent')
-# else:
-#     content = file.read()
-#     print(content)
-# finally:
-#     file.close()
-#     print('File closed!')
+except KeyError as error:
+    print(f'{error} : non_existent')
+else:
+    content = file.read()
+    print(content)
+finally:
+    file.close()
+    print('File closed!')
 finally:
     raise TypeError('Made that!')
+'''
+
+# BMI
+height = float(input("Height : "))
+weight = int(input("Weight : "))
+
+if height > 3:
+    raise ValueError("Human height should be under 3 metres!")
+
+bmi = weight / (height * height)
+print(bmi)
