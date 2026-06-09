@@ -44,3 +44,5 @@ except: #except FileNotFoundError:
 # finally:
 #     file.close()
 #     print('File closed!')
+finally:
+    raise TypeError('Made that!')
