@@ -12,5 +12,9 @@ phonetics = {row.letter: row.code for (_, row) in data.iterrows()}
 # print(phonetics)
 
 word = input("\nEnter a word : ").upper()
-equiv = [phonetics[letter] for letter in word]
-print(f'NATO Equivalence : {equiv}')
+try:
+    equiv = [phonetics[letter] for letter in word]
+except KeyError:
+    print("\nINVALID! Only aphabets allowed! \n")
+else:
+    print(f'NATO Equivalence : {equiv}')
