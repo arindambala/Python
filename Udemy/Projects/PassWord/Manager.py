@@ -44,8 +44,13 @@ def saveTo():
     else:
         # choice = messagebox.askokcancel(title=website, message=f'Details provided: \nEmail: {mail} \nPassword: {key} \nTo be saved?')
         # if choice:
-        with open('data.json', 'w') as file: # with open('data.txt', 'a') as file:
-            json.dump(data, file, indent=4) # file.write(f'{website} | {mail} | {key}\n')
+        with open('data.json', 'r') as file: # with open('data.txt', 'a') as file:
+            # json.dump(data, file, indent=4) # file.write(f'{website} | {mail} | {key}\n')
+            file_data = json.load(file) # print(data)
+            file_data.update(data)
+        
+        with open('data.json', 'w') as file:    
+            json.dump(file_data, file, indent=4)
             web.delete(0, END)
             hole.delete(0, END)
 
