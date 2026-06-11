@@ -1,6 +1,14 @@
 {
+    "Ebay": {
+        "email": "username@email.domain",
+        "password": ")WnJ9&8yzm)IZ#q3"
+    },
     "Netflix": {
         "email": "username@email.domain",
-        "password": "9fH%hlZMw%9GGD9"
+        "password": "px)+dma19Rk5V0!"
+    },
+    "Walmart": {
+        "email": "username@email.domain",
+        "password": "$ZhjGSq!15xN)da"
     }
 }
