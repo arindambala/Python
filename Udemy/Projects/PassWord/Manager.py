@@ -4,6 +4,7 @@ from tkinter import *
 from tkinter import messagebox
 from random import randint, choice, shuffle
 import pyperclip
+import json
 
 print(f"\n---- Password ^ Manager ----\n")
 
@@ -31,15 +32,22 @@ def saveTo():
     mail = user.get()
     key = hole.get()
     
+    data = {
+        website: {
+            'email': mail,
+            'password': key,
+        }
+    }
+    
     if len(website) == 0 or len(key) == 0:
         messagebox.showerror(title='INVALID!', message='Empty fields are not allowed.')
     else:
-        choice = messagebox.askokcancel(title=website, message=f'Details provided: \nEmail: {mail} \nPassword: {key} \nTo be saved?')
-        if choice:
-            with open('data.txt', 'a') as file:
-                file.write(f'{website} | {mail} | {key}\n')
-                web.delete(0, END)
-                hole.delete(0, END)
+        # choice = messagebox.askokcancel(title=website, message=f'Details provided: \nEmail: {mail} \nPassword: {key} \nTo be saved?')
+        # if choice:
+        with open('data.json', 'w') as file: # with open('data.txt', 'a') as file:
+            json.dump(data, file, indent=4) # file.write(f'{website} | {mail} | {key}\n')
+            web.delete(0, END)
+            hole.delete(0, END)
 
 # -------- UI Setup --------
 window = Tk()
