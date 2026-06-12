@@ -61,6 +61,24 @@ def saveTo():
                 web.delete(0, END)
                 hole.delete(0, END)
 
+# -------- Find Password --------
+def searchTo():
+    website = web.get()
+    
+    try:
+        with open('data.json') as file:
+            file_data = json.load(file)
+    except FileNotFoundError:
+        messagebox.showinfo(title='Error', message='No data entry found!')
+    else:
+        if website in file_data:
+            mail = file_data[website]['email']
+            key = file_data[website]['password']
+            
+            messagebox.showinfo(title=website, message=f'Email: {mail}\nPassword: {key}')
+        else:
+            messagebox.showinfo(title='Error', message=f'No details for {website} exists!')
+
 # -------- UI Setup --------
 window = Tk()
 window.title("What's the key cuh?")
@@ -78,8 +96,8 @@ mail.grid(row=2, column=0)
 key = Label(text='Password :')
 key.grid(row=3, column=0)
 
-web = Entry(width=35)
-web.grid(row=1, column=1, columnspan=2)
+web = Entry(width=21)
+web.grid(row=1, column=1)
 web.focus() # Cursor on the data entry
 user = Entry(width=35)
 user.grid(row=2, column=1, columnspan=2)
@@ -91,5 +109,7 @@ generate = Button(text='Generate Password', command=createPw)
 generate.grid(row=3, column=2)
 add = Button(text='Add', width=36, command=saveTo)
 add.grid(row=4, column=1, columnspan=2)
+search = Button(text='Search', width=13, command=searchTo)
+search.grid(row=1, column=2)
 
 window.mainloop()

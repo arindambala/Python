@@ -10,5 +10,13 @@
     "Walmart": {
         "email": "username@email.domain",
         "password": "$ZhjGSq!15xN)da"
+    },
+    "Spotify": {
+        "email": "username@email.domain",
+        "password": "(5mSgnS9+qPeO"
+    },
+    "Pinterest": {
+        "email": "username@email.domain",
+        "password": "4IT!H$)g2gDxjm1n1"
     }
 }
