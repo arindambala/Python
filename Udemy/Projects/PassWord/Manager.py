@@ -10,6 +10,8 @@ print(f"\n---- Password ^ Manager ----\n")
 
 # -------- Key Generator --------
 def createPw():
+    hole.delete(0, END)
+
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
@@ -42,17 +44,22 @@ def saveTo():
     if len(website) == 0 or len(key) == 0:
         messagebox.showerror(title='INVALID!', message='Empty fields are not allowed.')
     else:
-        # choice = messagebox.askokcancel(title=website, message=f'Details provided: \nEmail: {mail} \nPassword: {key} \nTo be saved?')
-        # if choice:
-        with open('data.json', 'r') as file: # with open('data.txt', 'a') as file:
-            # json.dump(data, file, indent=4) # file.write(f'{website} | {mail} | {key}\n')
-            file_data = json.load(file) # print(data)
+        try:
+            # choice = messagebox.askokcancel(title=website, message=f'Details provided: \nEmail: {mail} \nPassword: {key} \nTo be saved?')
+            # if choice:
+            with open('data.json', 'r') as file: # with open('data.txt', 'a') as file:
+                # json.dump(data, file, indent=4) # file.write(f'{website} | {mail} | {key}\n')
+                file_data = json.load(file) # print(data)
+        except FileNotFoundError:
+            with open('data.json', 'w') as file:
+                json.dump(data, file, indent=4)
+        else:
             file_data.update(data)
-        
-        with open('data.json', 'w') as file:    
-            json.dump(file_data, file, indent=4)
-            web.delete(0, END)
-            hole.delete(0, END)
+            with open('data.json', 'w') as file:    
+                json.dump(file_data, file, indent=4)
+        finally:
+                web.delete(0, END)
+                hole.delete(0, END)
 
 # -------- UI Setup --------
 window = Tk()
