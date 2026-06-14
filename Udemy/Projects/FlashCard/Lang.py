@@ -4,4 +4,4 @@ BG_COLOR = '#B1DDC6'
 
 print(f"\n ---- Flash ^ Cards ---- \n")
 
-# Viva L'Anlgette - Viva La France'
+# Viva L'Anglette - Viva La France'
