@@ -5,6 +5,8 @@ GREEN = '#23C552'
 BG_COLOR = '#B1DDC6'
 FG_COLOR = '#E5E5EA'
 
+from tkinter import *
+
 print(f"\n ---- Flash ^ Cards ---- \n")
 
 # Viva L'Anglette - Viva La France'
