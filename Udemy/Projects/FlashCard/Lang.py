@@ -9,4 +9,8 @@ from tkinter import *
 
 print(f"\n ---- Flash ^ Cards ---- \n")
 
-# Viva L'Anglette - Viva La France'
+window = Tk()
+window.title("Vive l'Angleterre - Vive la France")
+window.config(padx=50, pady=50, bg=BG_COLOR)
+
+window.mainloop()
