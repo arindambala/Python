@@ -1,9 +1,6 @@
 # Day 31 - 100 Days of Code
 
-RED = '#DE1A24'
-GREEN = '#23C552'
 BG_COLOR = '#B1DDC6'
-FG_COLOR = '#E5E5EA'
 
 from tkinter import *
 
@@ -21,11 +18,11 @@ canvas.create_text(400, 263, text='word', font=('Ariel', 60, 'bold'))
 canvas.grid(row=0, column=0, columnspan=2)
 
 wrg_img = PhotoImage(file='images/wrong.png')
-unknown_Button = Button(image=wrg_img)
+unknown_Button = Button(image=wrg_img, highlightthickness=0)
 unknown_Button.grid(row=1, column=0)
 
 rgt_img = PhotoImage(file='images/right.png')
-known_Button = Button(image=rgt_img)
+known_Button = Button(image=rgt_img, highlightthickness=0)
 known_Button.grid(row=1, column=1)
 
 window.mainloop()
