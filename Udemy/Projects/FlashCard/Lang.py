@@ -20,4 +20,8 @@ canvas.create_text(400, 150, text='Title', font=('Ariel', 40, 'italic'))
 canvas.create_text(400, 263, text='word', font=('Ariel', 60, 'bold'))
 canvas.grid(row=0, column=0)
 
+wrg_img = PhotoImage(file='images/wrong.png')
+unknown_Button = Button(image=wrg_img)
+unknown_Button.grid(row=1, column=0)
+
 window.mainloop()
