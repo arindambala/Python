@@ -3,8 +3,15 @@
 BG_COLOR = '#B1DDC6'
 
 from tkinter import *
+import pandas
 
 print(f"\n ---- Flash ^ Cards ---- \n")
+
+df = pandas.read_csv('data/french_words.csv')
+print(df)
+
+def nxt_card():
+    pass
 
 window = Tk()
 window.title("Vive l'Angleterre - Vive la France")
@@ -18,11 +25,11 @@ canvas.create_text(400, 263, text='word', font=('Ariel', 60, 'bold'))
 canvas.grid(row=0, column=0, columnspan=2)
 
 wrg_img = PhotoImage(file='images/wrong.png')
-unknown_Button = Button(image=wrg_img, highlightthickness=0)
+unknown_Button = Button(image=wrg_img, highlightthickness=0, command=nxt_card)
 unknown_Button.grid(row=1, column=0)
 
 rgt_img = PhotoImage(file='images/right.png')
-known_Button = Button(image=rgt_img, highlightthickness=0)
+known_Button = Button(image=rgt_img, highlightthickness=0, command=nxt_card)
 known_Button.grid(row=1, column=1)
 
 window.mainloop()
