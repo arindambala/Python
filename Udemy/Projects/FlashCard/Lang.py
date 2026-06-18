@@ -4,14 +4,17 @@ BG_COLOR = '#B1DDC6'
 
 from tkinter import *
 import pandas
+import random
 
 print(f"\n ---- Flash ^ Cards ---- \n")
 
 df = pandas.read_csv('data/french_words.csv')
-print(df)
+# print(df)
+learn = df.to_dict(orient='records') # Orients the table to create the dictionary
 
 def nxt_card():
-    pass
+    curr_card = random.choice(learn)
+    # print(curr_card['French'])
 
 window = Tk()
 window.title("Vive l'Angleterre - Vive la France")
