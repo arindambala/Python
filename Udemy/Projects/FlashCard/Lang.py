@@ -18,9 +18,14 @@ def nxt_card():
     canvas.itemconfig(card_title, text='French')
     canvas.itemconfig(card_word, text=curr_card['French'])
 
+def flip_card():
+    pass
+
 window = Tk()
 window.title("Vive l'Angleterre - Vive la France")
 window.config(padx=50, pady=50, bg=BG_COLOR)
+
+window.after(3000, func=flip_card)
 
 canvas = Canvas(width=800, height=526, bg=BG_COLOR, highlightthickness=0)
 cf_img = PhotoImage(file='images/card_front.png')
