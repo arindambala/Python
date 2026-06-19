@@ -11,15 +11,19 @@ print(f"\n ---- Flash ^ Cards ---- \n")
 df = pandas.read_csv('data/french_words.csv')
 # print(df)
 learn = df.to_dict(orient='records') # Orients the table to create the dictionary
+curr_card = {}
 
 def nxt_card():
+    global curr_card
     curr_card = random.choice(learn)
     # print(curr_card['French'])
     canvas.itemconfig(card_title, text='French')
     canvas.itemconfig(card_word, text=curr_card['French'])
 
 def flip_card():
-    pass
+    canvas.itemconfig(card_title, text='English', fill='white')
+    canvas.itemconfig(card_word, text=curr_card['English'], fill='white')
+    canvas.itemconfig(card_background, image=cb_img)
 
 window = Tk()
 window.title("Vive l'Angleterre - Vive la France")
@@ -29,7 +33,8 @@ window.after(3000, func=flip_card)
 
 canvas = Canvas(width=800, height=526, bg=BG_COLOR, highlightthickness=0)
 cf_img = PhotoImage(file='images/card_front.png')
-canvas.create_image(400, 263, image = cf_img)
+cb_img = PhotoImage(file='images/card_back.png')
+card_background = canvas.create_image(400, 263, image = cf_img)
 card_title = canvas.create_text(400, 150, text='Title', font=('Ariel', 40, 'italic'))
 card_word = canvas.create_text(400, 263, text='word', font=('Ariel', 60, 'bold'))
 canvas.grid(row=0, column=0, columnspan=2)
