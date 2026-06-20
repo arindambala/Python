@@ -14,12 +14,16 @@ learn = df.to_dict(orient='records') # Orients the table to create the dictionar
 curr_card = {}
 
 def nxt_card():
-    global curr_card
+    global curr_card, flip_timer
+    window.after_cancel(flip_timer)
+    
     curr_card = random.choice(learn)
     # print(curr_card['French'])
     canvas.itemconfig(card_title, text='French', fill='black')
     canvas.itemconfig(card_word, text=curr_card['French'], fill='black')
     canvas.itemconfig(card_background, image=cf_img)
+    
+    flip_timer = window.after(3000, func=flip_card)
 
 def flip_card():
     canvas.itemconfig(card_title, text='English', fill='white')
@@ -30,7 +34,7 @@ window = Tk()
 window.title("Vive l'Angleterre - Vive la France")
 window.config(padx=50, pady=50, bg=BG_COLOR)
 
-window.after(3000, func=flip_card)
+flip_timer = window.after(3000, func=flip_card)
 
 canvas = Canvas(width=800, height=526, bg=BG_COLOR, highlightthickness=0)
 cf_img = PhotoImage(file='images/card_front.png')
