@@ -17,8 +17,9 @@ def nxt_card():
     global curr_card
     curr_card = random.choice(learn)
     # print(curr_card['French'])
-    canvas.itemconfig(card_title, text='French')
-    canvas.itemconfig(card_word, text=curr_card['French'])
+    canvas.itemconfig(card_title, text='French', fill='black')
+    canvas.itemconfig(card_word, text=curr_card['French'], fill='black')
+    canvas.itemconfig(card_background, image=cf_img)
 
 def flip_card():
     canvas.itemconfig(card_title, text='English', fill='white')
