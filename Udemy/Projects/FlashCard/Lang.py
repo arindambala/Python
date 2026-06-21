@@ -19,7 +19,6 @@ except FileNotFoundError:
 else:
     learn = df.to_dict(orient='records') # Orients the table to create the dictionary
 
-
 def nxt_card():
     global curr_card, flip_timer
     window.after_cancel(flip_timer)
@@ -41,7 +40,7 @@ def is_known():
     learn.remove(curr_card)
     
     data = pandas.DataFrame(learn)
-    data.to_csv('data/words_to_learn.csv')
+    data.to_csv('data/words_to_learn.csv', index=False)
     
     nxt_card()
 
