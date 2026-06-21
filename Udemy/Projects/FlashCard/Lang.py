@@ -1,6 +1,8 @@
 # Day 31 - 100 Days of Code
 
 BG_COLOR = '#B1DDC6'
+learn = {}
+curr_card = {}
 
 from tkinter import *
 import pandas
@@ -8,10 +10,15 @@ import random
 
 print(f"\n ---- Flash ^ Cards ---- \n")
 
-df = pandas.read_csv('data/french_words.csv')
-# print(df)
-learn = df.to_dict(orient='records') # Orients the table to create the dictionary
-curr_card = {}
+try:
+    df = pandas.read_csv('data/words_to_learn.csv')
+    # print(df)
+except FileNotFoundError:
+    org_df = pandas.read_csv('data/french_words.csv')
+    learn = org_df.to_dict(orient='records')
+else:
+    learn = df.to_dict(orient='records') # Orients the table to create the dictionary
+
 
 def nxt_card():
     global curr_card, flip_timer
@@ -29,6 +36,14 @@ def flip_card():
     canvas.itemconfig(card_title, text='English', fill='white')
     canvas.itemconfig(card_word, text=curr_card['English'], fill='white')
     canvas.itemconfig(card_background, image=cb_img)
+
+def is_known():
+    learn.remove(curr_card)
+    
+    data = pandas.DataFrame(learn)
+    data.to_csv('data/words_to_learn.csv')
+    
+    nxt_card()
 
 window = Tk()
 window.title("Vive l'Angleterre - Vive la France")
@@ -49,7 +64,7 @@ unknown_Button = Button(image=wrg_img, highlightthickness=0, command=nxt_card)
 unknown_Button.grid(row=1, column=0)
 
 rgt_img = PhotoImage(file='images/right.png')
-known_Button = Button(image=rgt_img, highlightthickness=0, command=nxt_card)
+known_Button = Button(image=rgt_img, highlightthickness=0, command=is_known)
 known_Button.grid(row=1, column=1)
 
 nxt_card()
