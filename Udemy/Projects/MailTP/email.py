@@ -3,7 +3,7 @@
 import smtplib
 
 mail = '_address_@gmail.com'
-key = '_!@#$%^&*()+_'
+key = '_!@#$%^&*()+_' # In accordance with the app password generation for the respective domain
 
 connection = smtplib.SMTP('smtp.gmail.com') # Depends on the information about the particular domain
 
