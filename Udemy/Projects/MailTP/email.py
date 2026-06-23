@@ -11,6 +11,6 @@ with connection as connect:
     connect.starttls()
 
     connect.login(user=mail, password=key)
-    connect.sendmail(from_addr=mail, to_addrs='_address_@live.com', msg='Subject:Hello\n\nBruh')
+    connect.sendmail(from_addr=mail, to_addrs='_address_@live.com', msg='Subject:Hello\n\nBruh') # Change with respect to the domain
 
     #connect.close()
