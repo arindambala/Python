@@ -10,3 +10,6 @@ print(year, type(year))
 
 day_of_week = now.weekday()
 print(day_of_week) # Starts from Monday - 0
+
+dod = dt.datetime(year=2017, month=3, day=21, hour=9, minute=10) # hour-minute-second - defaulted as 00:00:00
+print(dod)
