@@ -26,3 +26,9 @@ if weekday == 0:
         quote = random.choice(quotes)
     
     # print(quote)
+    
+    with smtplib.SMTP('smtp.gmail.com') as connection:
+        connection.starttls()
+        
+        connection.login(mail, key)
+        connection.sendmail(from_addr=mail, to_addrs=mail, msg=f'Subject:Monday Motivation\n\n{quote}')
