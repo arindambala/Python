@@ -19,3 +19,10 @@ with connection as connect:
 
 now = dt.datetime.now()
 weekday = now.weekday()
+
+if weekday == 0:
+    with open('quotes.txt') as quote_file:
+        quotes = quote_file.readlines()
+        quote = random.choice(quotes)
+    
+    # print(quote)
