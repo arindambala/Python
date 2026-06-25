@@ -2,6 +2,7 @@
 
 import smtplib
 import datetime as dt
+import random
 
 mail = '_address_@gmail.com'
 key = '_!@#$%^&*()+_' # In accordance with the app password generation for the respective domain
@@ -17,3 +18,4 @@ with connection as connect:
     #connect.close() '''
 
 now = dt.datetime.now()
+weekday = now.weekday()
