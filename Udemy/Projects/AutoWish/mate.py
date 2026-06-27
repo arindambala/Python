@@ -1,8 +1,12 @@
 # Day 32 - 100 Days of Code
 
+mail = '_address_@gmail.com'
+key = '_!@#$%^&*()+_'
+
 from datetime import datetime
 import pandas
 import random
+import smtplib
 
 print(f"\n ---- Birthday ^ Wisher ---- \n")
 
@@ -18,3 +22,9 @@ if today in bday_dict:
     with open(file_path) as letter_file:
         contents = letter_file.read()
         contents.replace('[NAME]', bday_person['name'])
+    
+    with smtplib.SMTP('smtp.gmail.com') as connection:
+        connection.starttls()
+        connection.login(mail, key)
+        
+        connection.sendmail(from_addr=mail, to_addrs=bday_person['email'], msg=f'Subject:Happy Birthday!\n\n{contents}')
