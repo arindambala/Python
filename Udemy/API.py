@@ -22,5 +22,5 @@ print(response.status_code) # print(response)
 
 response.raise_for_status()
 
-data = response.json()
+data = response.json()['iss_position'] # Pinpoint
 print(data)
