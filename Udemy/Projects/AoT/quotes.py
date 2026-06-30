@@ -12,4 +12,8 @@ canvas.create_image(150, 207, image=bg_img)
 quote_text = canvas.create_text(150, 207, text='心臓を捧げよ!', width=280, font=('Arial', 30, 'bold'), fill='black', justify='center')
 canvas.grid(row=0, column=0)
 
+# ey_img = PhotoImage(file='eren.png')
+# button = Button(image=ey_img, highlightthickness=0)
+# button.grid(row=1, column=0)
+
 window.mainloop()
