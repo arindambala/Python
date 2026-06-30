@@ -2,6 +2,9 @@
 
 from tkinter import *
 
+def get_quote():
+    pass
+
 window = Tk()
 window.title('進撃の巨人')
 window.config(padx=50, pady=50)
