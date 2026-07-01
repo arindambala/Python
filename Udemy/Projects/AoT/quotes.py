@@ -10,8 +10,8 @@ def get_quote():
     data = response.json()
     author = data['author']
     quote = data['quote']
-    canvas.itemconfig(quote_text, text=quote)
-    canvas.itemconfig(author_name, author)
+    canvas.itemconfig(quote_text, text=f'{quote}')
+    canvas.itemconfig(author_name, text=f'- {author}')
 
 window = Tk()
 window.title('進撃の巨人')
@@ -20,8 +20,9 @@ window.config(padx=50, pady=50)
 canvas = Canvas(width=300, height=414)
 bg_img = PhotoImage(file='background.png')
 canvas.create_image(150, 207, image=bg_img)
-quote_text = canvas.create_text(150, 207, text='心臓を捧げよ!', width=280, font=('Arial', 30, 'bold'), fill='black', justify='center')
-author_name = canvas.create_text(150, 207, text='心臓を捧げよ!', width=280, font=('Arial', 30, 'bold'), fill='black', justify='center')
+
+quote_text = canvas.create_text(150, 180, text='心臓を捧げよ!', width=260, font=('Arial', 18, 'bold'), fill='black', justify='center')
+author_name = canvas.create_text(150, 300, text='', width=260, font=('Arial', 14, 'italic'), fill='black', justify='center')
 canvas.grid(row=0, column=0)
 
 # ey_img = PhotoImage(file='eren.png')
