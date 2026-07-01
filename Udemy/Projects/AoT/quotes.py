@@ -2,6 +2,7 @@
 
 from tkinter import *
 import requests
+from PIL import Image, ImageTk
 
 def get_quote():
     response = requests.get('https://aot-api.vercel.app/quote')
@@ -30,11 +31,12 @@ quote_text = canvas.create_text(150, 100, text='心臓を捧げよ!', width=280,
 author_name = canvas.create_text(150, 150, text='', width=280, font=('Arial', 12, 'bold italic'), fill='black', justify='center', anchor='n')
 canvas.grid(row=0, column=0)
 
-# ey_img = PhotoImage(file='eren.png')
-# button = Button(image=ey_img, highlightthickness=0)
-# button.grid(row=1, column=0)
+# button = Button(text='Next', font=('Arial', 12, 'bold'), command=get_quote)
+# button.grid(row=1, column=0, pady=20)
 
-button = Button(text='Next', font=('Arial', 12, 'bold'), command=get_quote)
-button.grid(row=1, column=0, pady=20)
+pil_img = Image.open('levi.png') 
+hgs_img = ImageTk.PhotoImage(pil_img)
+button = Button(image=hgs_img, borderwidth=0, highlightthickness=0, command=get_quote)
+button.grid(row=1, column=0, pady=10)
 
 window.mainloop()
