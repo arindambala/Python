@@ -1,4 +1,18 @@
-Info = [
+import requests
+
+parameters = {
+    'amount': 10,
+    'type': 'boolean',
+}
+
+
+response = requests.get('https://opentdb.com/api.php', params=parameters)
+response.raise_for_status()
+
+Info = response.json()['results']
+# print(Info)
+
+''' Info = [
     {
         "category": "Science: Computers",
         "type": "boolean",
@@ -99,4 +113,4 @@ Info = [
             "True"
         ]
     }
-]
+] '''
