@@ -16,7 +16,7 @@ for ques in Info:
     ques_bank.append(new_ques)
 
 quiz = Task(ques_bank)
-quizUI = Interface()
+quizUI = Interface(quiz)
 
 # while quiz.still_has_questions():
 #     quiz.next_question()
