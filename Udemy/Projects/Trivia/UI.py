@@ -29,7 +29,7 @@ class Interface:
         self.get_next_ques()
         
         self.window.mainloop()
-    
+
     def get_next_ques(self):
         self.canvas.config(bg='white')
         if self.quiz.still_has_questions():
