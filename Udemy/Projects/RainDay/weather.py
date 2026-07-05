@@ -3,14 +3,19 @@
 LAT = 20.296059
 LLT = 85.824539
 
+import os
 import requests
 from twilio.rest import Client
+from dotenv import load_dotenv
+
+env_path = '/path/to/the/variable/folder/.env'
+load_dotenv(dotenv_path=env_path)
 
 OWM_API = 'https://api.openweathermap.org/data/2.5/forecast'
-API_KEY = '_!@#$%^&*()+_'
+API_KEY = os.environ.get('OWM_API_KEY')
 
-ACCOUNT_SID = '$ZhjGSq!15xN)da(5mSgnS9+qPeO4IT!H$)g2gDxjm1n1'
-AUTH_TOKEN = '_!@#$%^&*()+!@#$%^&*()+!@#$%^&*()+_'
+ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
+AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
 
 print(f"\n---- Authenticate ^ Keys ----\n")
 
