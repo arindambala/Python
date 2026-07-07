@@ -3,3 +3,5 @@
 import requests
 
 print(f'\n---- Habit ^ Tracker ----\n')
+
+''' HTTP Requests - GET / PUT / POST / DELETE '''
