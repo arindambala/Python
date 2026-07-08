@@ -11,9 +11,11 @@ load_dotenv(dotenv_path=env_path)
 
 TOKEN = os.environ.get('TOKEN')
 USERNAME = os.environ.get('USERNAME')
+GRAPH_ID = 'dayW'
 
 PIXELA_ENDPOINT = 'https://pixe.la/v1/users'
 GRAPH_ENDPOINT = f'{PIXELA_ENDPOINT}/{USERNAME}/graphs'
+PIXEL_CREATION_ENDPOINT = f'{PIXELA_ENDPOINT}/{USERNAME}/graphs/{GRAPH_ID}'
 
 print(f'\n---- Habit ^ Tracker ----\n')
 
@@ -29,10 +31,10 @@ user_parameters = {
 response = requests.post(url=PIXELA_ENDPOINT, json=user_parameters)
 print(response.text)
 
-''' CREATE A GRAPH DEFINITION'''
+''' CREATE A GRAPH DEFINITION '''
 
 graph_config = {
-    'id': 'dayW',
+    'id': GRAPH_ID,
     'name': 'WalkWalk',
     'unit': 'Km',
     'type': 'float',
@@ -44,4 +46,14 @@ header = {
 }
 
 response = requests.post(url=GRAPH_ENDPOINT, json=graph_config, headers=header)
+print(response.text)
+
+''' POST VALUE TO THE GRAPH '''
+
+pixel_data = {
+    'date': 'yyyyMMdd',
+    'quantity': 'x.xx',
+}
+
+response = requests.post(url=PIXEL_CREATION_ENDPOINT, json=pixel_data, headers=header)
 print(response.text)
