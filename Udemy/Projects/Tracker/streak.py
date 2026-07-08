@@ -13,14 +13,17 @@ load_dotenv(dotenv_path=env_path)
 TOKEN = os.environ.get('TOKEN')
 USERNAME = os.environ.get('USERNAME')
 GRAPH_ID = 'dayW'
+TODAY = datetime.now()
 
 PIXELA_ENDPOINT = 'https://pixe.la/v1/users'
 GRAPH_ENDPOINT = f'{PIXELA_ENDPOINT}/{USERNAME}/graphs'
 PIXEL_CREATION_ENDPOINT = f'{PIXELA_ENDPOINT}/{USERNAME}/graphs/{GRAPH_ID}'
+PIXEL_UPDATION_ENDPOINT = f'{PIXEL_CREATION_ENDPOINT}/{TODAY.strftime('%Y%m%d')}'
+PIXEL_DELETION_ENDPOINT = f'{PIXEL_CREATION_ENDPOINT}/{TODAY.strftime('%Y%m%d')}'
 
 print(f'\n---- Habit ^ Tracker ----\n')
 
-''' CREATE YOUR USER ACCOUNT '''
+''' 1 - CREATE YOUR USER ACCOUNT '''
 
 user_parameters = {
     'token': TOKEN,
@@ -32,7 +35,7 @@ user_parameters = {
 response = requests.post(url=PIXELA_ENDPOINT, json=user_parameters)
 print(response.text)
 
-''' CREATE A GRAPH DEFINITION '''
+''' 2 - CREATE A GRAPH DEFINITION '''
 
 graph_config = {
     'id': GRAPH_ID,
@@ -49,15 +52,29 @@ header = {
 response = requests.post(url=GRAPH_ENDPOINT, json=graph_config, headers=header)
 print(response.text)
 
-''' POST VALUE TO THE GRAPH '''
+''' 3 - POST VALUE TO THE GRAPH '''
 
 today = datetime.now()
 # print(today)
 
 pixel_data = {
     'date': today.strftime('%Y%m%d'),
-    'quantity': 'x.xx',
+    'quantity': 'x.xx', # input('Data : ')
 }
 
 response = requests.post(url=PIXEL_CREATION_ENDPOINT, json=pixel_data, headers=header)
+print(response.text)
+
+''' 4 - UPDATE VALUE OF THE GRAPH '''
+
+update_pixel = {
+    'quantity': 'xx.xx',
+}
+
+response = requests.put(url=PIXEL_UPDATION_ENDPOINT, json=update_pixel, headers=header)
+print(response.text)
+
+'''5 - DELETE VALUE OF THE GRAPH '''
+
+response = requests.delete(url=PIXEL_DELETION_ENDPOINT, headers=header)
 print(response.text)
