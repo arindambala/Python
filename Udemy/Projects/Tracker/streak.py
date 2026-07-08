@@ -3,6 +3,7 @@
 import os
 import requests
 from dotenv import load_dotenv
+from datetime import datetime
 
 env_path = '/path/to/the/variable/folder/.env'
 load_dotenv(dotenv_path=env_path)
@@ -50,8 +51,11 @@ print(response.text)
 
 ''' POST VALUE TO THE GRAPH '''
 
+today = datetime.now()
+# print(today)
+
 pixel_data = {
-    'date': 'yyyyMMdd',
+    'date': today.strftime('%Y%m%d'),
     'quantity': 'x.xx',
 }
 
