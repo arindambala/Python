@@ -15,6 +15,8 @@ NUEX_ENDPOINT = 'https://app.100daysofpython.dev/v1/nutrition/natural/exercise'
 APP_ID = os.environ.get('NUEX_ID')
 API_KEY = os.environ.get('NUEX_KEY')
 
+SHEETY_ENDPOINT = 'https://api.sheety.co/username/projectName/sheetName'
+
 ex_text = input('What did you do today? : ')
 
 header = {
@@ -31,4 +33,38 @@ parameters = {
 }
 
 response = requests.post(NUEX_ENDPOINT, json=parameters, headers=header)
-print(response.json())
+data = response.json() # print(response.json())
+
+today = datetime.now().strftime('%d/%m/%Y')
+time = datetime.now().strftime('%X')
+
+for exercise in data['exercises']:
+    sheety_config = {
+        'workout': {
+            'date': today,
+            'time': time,
+            'exercise': exercise['name'].title(),
+            'duration': exercise['duration_min'],
+            'calories': exercise['nf_calories'],
+        }
+    }
+    
+    sheety_response = requests.post(SHEETY_ENDPOINT, json=sheety_config) # No Authentication
+    print(sheety_response.text)
+
+''' BASIC AUTHENTICATION '''
+
+BASIC_USERNAME = os.environ['BASIC_ID']
+BASIC_PASSWORD = os.environ['BASIC_KEY']
+
+sheety_response = requests.post(SHEETY_ENDPOINT, json=sheety_config, auth=(BASIC_USERNAME, BASIC_PASSWORD)) # HTTP Basic Auth | base64
+
+''' BEARER AUTHENTICATION '''
+
+BEARER_TOKEN = os.environ.get('BEARER_KEY')
+
+bearer_header = {
+    'Authorization': f'Bearer {BEARER_TOKEN}'
+}
+
+sheety_response = requests.post(SHEETY_ENDPOINT, json=sheety_config, headers=bearer_header) # Token-based security
