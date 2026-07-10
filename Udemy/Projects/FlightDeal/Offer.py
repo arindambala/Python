@@ -35,7 +35,7 @@ ORIGIN_CITY_IATA = 'IATA_code'
 
 for destination in sheety_data:
     pprint(f"Flights to {destination['city']}....")
-    flights = search.check_flights(ORIGIN_CITY_IATA, destination['iataCode'], from_time=tomorrow, to_time=six_months_after)
+    flights = search.check_flights(ORIGIN_CITY_IATA, destination['iataCode'], from_time=tomorrow, to_time=six_months_after, is_direct=True)
     # pprint(flights)
 
     cheapest_flight = FlightData.find_cheapest_flight(flights, return_date=six_months_after.strftime('%Y-%m-%d'))
@@ -48,16 +48,17 @@ for destination in sheety_data:
         cheapest_flight = FlightData.find_cheapest_flight(stopover_flights, return_date=six_months_after.strftime('%Y-%m-%d'))
         print(f'Cheapest indirect flight price : ISO_code {cheapest_flight.price}')
         
-        if cheapest_flight.price == 'N/A' and cheapest_flight.price < destination['lowestPrice']:
-            if cheapest_flight.stops == 0:
-                message = f'Low price alert! Only ISO_code {cheapest_flight.price} to fly direct from {cheapest_flight.origin_airport} to {cheapest_flight.destination_airport}, on {cheapest_flight.out_date} until {cheapest_flight.return_date} !!'
+    if cheapest_flight.price != 'N/A' and cheapest_flight.price < destination['lowestPrice']:
+        if cheapest_flight.stops == 0:
+            message = f'Low price alert! Only ISO_code {cheapest_flight.price} to fly direct from {cheapest_flight.origin_airport} to {cheapest_flight.destination_airport}, on {cheapest_flight.out_date} until {cheapest_flight.return_date} !!'
+    
+        else:
+            message = f'Low price alert! Only ISO_code {cheapest_flight.price} to fly from {cheapest_flight.origin_airport} to {cheapest_flight.destination_airport}, on {cheapest_flight.out_date} until {cheapest_flight.return_date} !!'
         
-            else:
-                message = f'Low price alert! Only ISO_code {cheapest_flight.price} to fly from {cheapest_flight.origin_airport} to {cheapest_flight.destination_airport}, on {cheapest_flight.out_date} until {cheapest_flight.return_date} !!'
-            
-            print(f'Check email. Lower price flight found to {destination['city']}!')
-            
-            notify.send_sms(message_body=message)
-            notify.send_whatsapp(message_body=message)
-            
-            notify.send_emails(email_list=customer_email_list, email_body=message)
+        print(f'Check email. Lower price flight found to {destination['city']}!')
+        task.update_least_price(destination['id'], cheapest_flight.price)
+        
+        notify.send_sms(message_body=message)
+        notify.send_whatsapp(message_body=message)
+        
+        notify.send_emails(email_list=customer_email_list, email_body=message)
