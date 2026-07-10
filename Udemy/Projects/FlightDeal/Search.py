@@ -10,7 +10,7 @@ class FlightSearch:
         self.api_endpoint = os.environ.get('SERP_ENDPOINT')
         self.api_key = os.environ.get('SERP_KEY')
     
-    def check_flights(self, origin_city_code, destination_city_code, from_time, to_time):
+    def check_flights(self, origin_city_code, destination_city_code, from_time, to_time, is_direct=True):
         query = {
             'engine': 'google_flights',
             'departure_id': origin_city_code,
@@ -22,6 +22,9 @@ class FlightSearch:
             'currency': 'ISO_code',
             'api_key': self.api_key
         }
+        
+        if is_direct:
+            query['stops'] = '1'
         
         response = requests.get(url=self.api_endpoint, params=query)
         
