@@ -13,7 +13,6 @@ class FlightNotifs:
         self.smtp_addr = os.environ.get('SMTP_ADDRESS')
         self.email = os.environ.get('MAIL')
         self.password = os.environ.get('KEY')
-        self.connection = smtplib.SMTP(self.smtp_addr)
         
     def send_sms(self, message_body):
         message = self.client.messages.create(from_=os.environ.get('TWILIO_VIRTUAL_NUMBER'), body=message_body, to=os.environ.get('TWILIO_VERIFIED_NUMBER'))
@@ -26,7 +25,7 @@ class FlightNotifs:
         print(message.sid)
         
     def send_emails(self, email_list, email_body):
-        with self.connection as connect:
+        with smtplib.SMTP(self.smtp_addr) as connect:
             connect.starttls()
             connect.login(self.email, self.password)
             
