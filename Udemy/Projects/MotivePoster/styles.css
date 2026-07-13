@@ -93,3 +93,23 @@ html {
 .font-align-section #align {
     text-align: right;
 }
+
+/*
+
+Border:
+
+border: 10px solid black; Thickness Style Color
+border: 30px; Height & Width remain same | Border goes outwards
+border-top: 0px; Gets rid of the top
+border-width: 0px 10px 20px 30px; Top Right Bottom Left (Clockwise)
+border-width: 0px 20px; Top/Bottom Left/Right
+
+Padding:
+
+padding: 20px; Pushes border out on all sides | Height & Width remain same
+
+Margin:
+
+margin: 10px; Outside of the border
+
+*/
