@@ -1,0 +1,95 @@
+/* Day 44 - 100 Days of Code */
+
+/* 
+
+Pixel - 1px = 1/96th inch = 0.26 mm ; Static Size
+Point - 1pt = 1/72nd inch = 0.35 mm ; Static Size
+Letter 'M' width - 1em = 100% of parent ; Relative Size 
+1rem = 100% of root ; Relative Size (<html>) 
+
+*/ 
+
+/* Color Font */
+.font-section #pixel {
+    font-size: 20px;
+}
+
+.font-section #point {
+    font-size: 20pt;
+}
+
+.font-section #em {
+    font-size: 1em;
+}
+
+.font-section #rem {
+    font-size: 1rem;
+}
+
+.font-section footer {
+    font-size: 12pt;
+}
+
+html {
+    font-size: xx-large;
+}
+
+/* Font Family */
+.font-family-section #Helvetica {
+    font-family: Helvetica, sans-serif;
+}
+
+.font-family-section #Arial {
+    font-family: Arial, sans-serif;
+}
+
+.font-family-section #Serif {
+    font-family: serif;
+}
+
+.font-family-section #Sans-Serif {
+    font-family: sans-serif;
+}
+
+.font-family-section #Cursive {
+    font-family: cursive;
+}
+
+.font-family-section #Monospace {
+    font-family: monospace;
+}
+
+.font-family-section #Fantasy {
+    font-family: fantasy;
+}
+
+.font-family-section h1 {
+    font-family: 'Playwrite NZ', cursive;
+}
+
+/* Font Align */
+.font-align-section {
+    background-color: cornflowerblue;
+    color: white;
+    font-size: 18px;
+}
+
+.font-align-section #color {
+    color: coral;
+}
+
+.font-align-section #size {
+    font-size: 2rem;
+}
+
+.font-align-section #weigth {
+    font-weight: 900;
+}
+
+.font-align-section #family {
+    font-family: 'Playwrite NZ', cursive;
+}
+
+.font-align-section #align {
+    text-align: right;
+}
