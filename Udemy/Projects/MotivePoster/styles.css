@@ -113,3 +113,31 @@ Margin:
 margin: 10px; Outside of the border
 
 */
+
+/* Box Model */
+.box-model-section div {
+    width: 200px;
+    height: 200px;
+}
+
+.box-model-section p {
+    margin: 0;
+}
+
+.box-model-section #box-one {
+    background-color: cadetblue;
+    border: 10px solid black;
+    padding: 20px;
+}
+
+.box-model-section #box-two {
+    background-color: gold;
+    border-width: 20px 10px;
+    margin-left: 260px;
+}
+
+.box-model-section #box-three {
+    background-color: indianred;
+    border: 10px solid black;
+    margin-left: 40px;
+}
