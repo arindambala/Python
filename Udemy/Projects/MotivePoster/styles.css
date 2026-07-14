@@ -122,6 +122,7 @@ margin: 10px; Outside of the border
 
 .box-model-section p {
     margin: 0;
+    font-size: 16px;
 }
 
 .box-model-section #box-one {
@@ -132,6 +133,7 @@ margin: 10px; Outside of the border
 
 .box-model-section #box-two {
     background-color: gold;
+    border: solid black;
     border-width: 20px 10px;
     margin-left: 260px;
 }
@@ -141,3 +143,47 @@ margin: 10px; Outside of the border
     border: 10px solid black;
     margin-left: 40px;
 }
+
+/* Meme Post */
+.motivational-poster-section {
+    background-color: black;
+    padding: 50px 0;
+}
+
+.motivational-poster-section #box {
+    color: white;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.motivational-poster-section .image-meme {
+    width: 100%;
+    border: 5px solid white;
+    box-sizing: border-box;
+}
+
+.motivational-poster-section #box h1 {
+    font-family: 'Playwrite NZ', cursive;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+
+.motivational-poster-section #box p {
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+/*
+
+Box Model Flow:
+
+Positioning (Layout) - position, display, z-index, etc.
+Box Model (Size) - width, height, padding, margin, border, etc.
+Typography (Text) - font-family, font-size, text-align, line-height, etc.
+Visuals (Aesthetics) - background-color, color, box-shadow, etc.
+
+Another method to be considered : Alphabetical Flow - background-color, border, color, display, font-size, margin, text-align, width, etc. 
+
+*/
