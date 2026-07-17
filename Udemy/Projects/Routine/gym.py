@@ -25,11 +25,11 @@ chrome_options.add_experimental_option('detach', True)
 user_data_dir = os.path.join(os.getcwd(), 'chrome_profile')
 chrome_options.add_argument(f'--user-data-dir={user_data_dir}')
 
-driver = webdriver.Chrome(chrome_options)
+driver = webdriver.Chrome(options=chrome_options)
 driver.maximize_window()
 driver.get(GYM_URL)
 
-wait = WebDriverWait(driver, 2)
+wait = WebDriverWait(driver, 10)
 
 log_in = wait.until(EC.element_to_be_clickable((By.ID, 'login-button')))
 log_in.click()
@@ -48,57 +48,72 @@ submit_btn.click()
 wait.until(EC.presence_of_element_located((By.ID, 'schedule-page')))
 time.sleep(2)
 
-class_cards = driver.find_elements(By.CSS_SELECTOR, "div[id^='class-card-']")
+cards = driver.find_elements(By.CSS_SELECTOR, "div[id^='class-card-']")
 
-booked_count, waitlist_count, already_booked_count = 0, 0, 0
-total_count = 0
+target_ids = []
 
-classes = []
+for card in cards:
 
-for i in range(len(class_cards)):
-    curr_cards = driver.find_elements(By.CSS_SELECTOR, "div[id^='class-card-']")
-    card = curr_cards[i]
-    
     card_id = card.get_attribute('id').replace('class-card-', '')
+
+    day_group = card.find_element(By.XPATH, "./ancestor::div[contains(@id,'day-group-')]")
+    day_title = day_group.find_element(By.TAG_NAME, "h2").text
+
+    time_text = card.find_element(By.ID, f'class-time-{card_id}').text
+
+    if (("tue" in day_title.lower() or "thu" in day_title.lower()) and "6:00 PM" in time_text):
+        target_ids.append(card_id)
+
+print(f"\nFound {len(target_ids)} Tuesday/Thursday 6 PM classes.\n")
+
+booked_count = 0
+waitlist_count = 0
+already_booked_count = 0
+
+for card_id in target_ids:
+
+    try:
+        card = driver.find_element(By.ID, f'class-card-{card_id}')
+    except Exception:
+        print(f'Skipping missing card: {card_id}')
+        continue
     
-    day_group = card.find_element(By.XPATH, "./ancestor::div[contains(@id, 'day-group-')]")
+    class_name = card.find_element(By.ID, f'class-name-{card_id}').text
+    
+    day_group = card.find_element(By.XPATH, "./ancestor::div[contains(@id,'day-group-')]")
     day_title = day_group.find_element(By.TAG_NAME, 'h2').text
-    
-    if 'Tue' in day_title or 'Thu' in day_title:
-        time_text = card.find_element(By.ID, f'class-time-{card_id}').text
-        
-        if '6:00 PM' in time_text:
-            class_name = card.find_element(By.ID, f'class-name-{card_id}').text
-            
-            book_btn = card.find_element(By.ID, f'book-button-{card_id}')
-            
-            class_info = f'{class_name} on {day_title}'
-            btn_text = book_btn.text.strip()
-            
-            if btn_text == 'Booked':
-                print(f'❗ Already Booked : {class_name} on {day_title} !')
-                already_booked_count += 1
-                classes.append(f'[Booked] {class_info}')
-            elif btn_text == 'Waitlisted':
-                print(f'❗ Already Waitlisted : {class_name} on {day_title} !')
-                already_booked_count += 1
-                classes.append(f'[Waitlisted] {class_info}')
-            elif btn_text == 'Book Class':
-                book_btn.click()
-                print(f'✅ Successfully Booked : {class_name} on {day_title} !')
-                booked_count += 1
-                classes.append(f'[New Booking] {class_info}')
-                time.sleep(1.5)
-            elif btn_text == 'Join Waitlist':
-                book_btn.click()
-                print(f'✅ Joined Waitlist : {class_name} on {day_title} !')
-                waitlist_count += 1
-                classes.append(f'[New Waitlist] {class_info}')
-                time.sleep(1.5)
 
-total_count = booked_count + waitlist_count + already_booked_count
+    try:
+        book_btn = card.find_element(By.ID, f'book-button-{card_id}')
+    except NoSuchElementException:
+        print(f'Already booked or unavailable: {class_name} ({day_title})')
+        already_booked_count += 1
+        continue
 
-print(f'\n_---- Total TUESDAY or THURSDAY 6 PM Classes : {total_count} ----_')
+    btn_text = book_btn.text.strip()
+
+    print(f"Checking {class_name} | {day_title} | {btn_text}")
+
+    if btn_text == 'Booked':
+        already_booked_count += 1
+        print('✔ Already booked.')
+    elif btn_text == 'Waitlisted':
+        already_booked_count += 1
+        print('✔ Already waitlisted.')
+    elif btn_text == 'Book Class':
+        book_btn.click()
+        wait.until(lambda d: d.find_element(By.ID, f'book-button-{card_id}').text.strip() == 'Booked')
+        booked_count += 1
+        print('✅ Successfully booked.')
+    elif btn_text == 'Join Waitlist':
+        book_btn.click()
+        wait.until(lambda d: d.find_element(By.ID, f'book-button-{card_id}').text.strip() == 'Waitlisted')
+        waitlist_count += 1
+        print('✅ Joined waitlist.')
+
+expected_count = len(target_ids)
+
+print(f'\n_---- Total TUESDAY or THURSDAY 6 PM Classes : {expected_count} ----_')
 print(f'\n\n....VERYFYING BOOKINGS PAGE....')
 
 bookings_link = driver.find_element(By.ID, 'my-bookings-link')
@@ -117,18 +132,20 @@ for card in cards:
         
         if ('Tue' in when_text or 'Thu' in when_text) and '6:00 PM' in when_text:
             class_name = card.find_element(By.TAG_NAME, 'h3').text
-            print(f'\n✔ Verified : {class_name}')
+            print(f'\n✔ Verified : {class_name} ({when_text})')
             verified_count += 1
     except NoSuchElementException:
         pass
 
-print(f'\n\n_---- VERIFICATION RESULT ----_\n')
-print(f'Expected bookings : {total_count}')
-print(f'Found bookings : {verified_count}')
+print('\n\n_---- VERIFICATION RESULT ----_\n')
 
-if total_count == verified_count:
-    print('\n✅ SUCCESS : All bookings verified!')
+print(f'Expected bookings : {expected_count}')
+print(f'Found bookings    : {verified_count}')
+
+if expected_count == verified_count:
+    print('\n✅ SUCCESS : All Tuesday/Thursday 6 PM classes are booked!')
+
 else:
-    print(f'\n❌ MISMATCH : Missing {total_count - verified_count} bookings!')
+    print(f'\n❌ Expected {expected_count} bookings but found {verified_count}.')
 
 driver.quit()
