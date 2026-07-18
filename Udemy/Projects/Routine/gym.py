@@ -7,11 +7,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from dotenv import load_dotenv
-import time
 
 print(f'\n---- Automate ^ Exercise ----\n')
 
-env_path = 'Udemy/Projects/Routine/.env'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+env_path = os.path.join(BASE_DIR, '.env')
 load_dotenv(dotenv_path=env_path)
 
 EMAIL = os.getenv('MAIL')
@@ -45,8 +45,7 @@ password_ipt.send_keys(PASSWORD)
 submit_btn = driver.find_element(By.ID, 'submit-button')
 submit_btn.click()
 
-wait.until(EC.presence_of_element_located((By.ID, 'schedule-page')))
-time.sleep(2)
+wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div[id^='class-card-']")))
 
 cards = driver.find_elements(By.CSS_SELECTOR, "div[id^='class-card-']")
 
@@ -74,7 +73,7 @@ for card_id in target_ids:
 
     try:
         card = driver.find_element(By.ID, f'class-card-{card_id}')
-    except Exception:
+    except NoSuchElementException:
         print(f'Skipping missing card: {card_id}')
         continue
     
@@ -114,7 +113,7 @@ for card_id in target_ids:
 expected_count = len(target_ids)
 
 print(f'\n_---- Total TUESDAY or THURSDAY 6 PM Classes : {expected_count} ----_')
-print(f'\n\n....VERYFYING BOOKINGS PAGE....')
+print(f'\n\n....VERIFYING BOOKINGS PAGE....')
 
 bookings_link = driver.find_element(By.ID, 'my-bookings-link')
 bookings_link.click()
