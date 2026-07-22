@@ -29,7 +29,6 @@
     border-radius: 50%;
 }
 
-/* Base fallback when no data-bs-theme attribute is set yet */
 .footer-link,
 .nav-link.footer-link {
     color: #ffffff !important;
@@ -82,4 +81,50 @@
 
 [data-bs-theme="dark"] #footer .border-bottom {
     border-color: rgba(33, 37, 41, 0.4) !important;
+}
+
+#btn-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn-theme-toggle svg {
+    fill: #000000;
+}
+
+[data-bs-theme="dark"] #btn-theme-toggle svg {
+    fill: #ffffff;
+}
+
+#btn-back-to-top {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+    transform: translateY(-10px); 
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn-back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#btn-back-to-top:hover {
+    transform: translateY(2px);
+}
+
+[data-bs-theme="light"] #btn-back-to-top {
+    background-color: #ff4c68;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] #btn-back-to-top {
+    background-color: #ffffff;
+    color: #212529;
 }

@@ -23,6 +23,16 @@
         </button>
     </div>
 
+    <!-- Back to Top Arrow -->
+    <button id="btn-back-to-top" class="btn position-fixed top-0 end-0 m-3 rounded-circle shadow border-0 z-3"
+        type="button" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5A.5.5 0 0 0 8 15" />
+        </svg>
+    </button>
+
     <!-- Title -->
     <section id="title" class="gradient-background">
         <div class="container col-xxl-8 px-4 pt-5">
@@ -240,6 +250,26 @@
                 htmlElement.setAttribute('data-bs-theme', 'dark');
                 themeIcon.innerHTML = moonPath;
             }
+        });
+    </script>
+
+    <!-- Back to Top Toggle -->
+    <script>
+        const backToTopBtn = document.getElementById('btn-back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
