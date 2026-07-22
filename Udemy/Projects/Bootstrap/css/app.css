@@ -28,3 +28,45 @@
     height: 100px;
     border-radius: 50%;
 }
+
+.footer-link:focus,
+.footer-link:focus-visible {
+    color: inherit !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+[data-bs-theme="light"] .footer-link {
+    color: #ffffff !important;
+}
+
+[data-bs-theme="light"] .footer-link:hover,
+[data-bs-theme="light"] .footer-link:focus {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+[data-bs-theme="light"] .footer-copyright {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-bs-theme="light"] #footer .border-bottom {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-bs-theme="dark"] .footer-link {
+    color: #212529 !important;
+}
+
+[data-bs-theme="dark"] .footer-link:hover,
+[data-bs-theme="dark"] .footer-link:focus {
+    color: #495057 !important;
+}
+
+[data-bs-theme="dark"] .footer-copyright {
+    color: #343a40 !important;
+}
+
+[data-bs-theme="dark"] #footer .border-bottom {
+    border-color: rgba(33, 37, 41, 0.4) !important;
+}
