@@ -29,9 +29,22 @@
     border-radius: 50%;
 }
 
+/* Base fallback when no data-bs-theme attribute is set yet */
+.footer-link,
+.nav-link.footer-link {
+    color: #ffffff !important;
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+#footer .border-bottom {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
 .footer-link:focus,
 .footer-link:focus-visible {
-    color: inherit !important;
     background-color: transparent !important;
     box-shadow: none !important;
     outline: none !important;
