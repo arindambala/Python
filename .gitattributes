@@ -1,0 +1,2 @@
+# Ignore vendor CSS for the BlogSite folder
+Python/Udemy/Projects/BlogSite/static/css/styles.css linguist-vendored
