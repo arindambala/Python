@@ -2,7 +2,7 @@
 
 import os
 import requests
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -15,10 +15,11 @@ print('\n---- Blog ^ Website ----\n')
 
 def get_blogs():
     try:
-        response = requests.get(BLOG)
+        response = requests.get(BLOG, timeout=5)
         response.raise_for_status()
         return response.json()
-    except (requests.RequestException, TypeError):
+    except (requests.RequestException, TypeError, ValueError) as err:
+        print(f'Error fetch : {err}')
         return []
 
 app = Flask(__name__)
@@ -31,9 +32,14 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html')
+    msg_sent = False
+    if request.method == 'POST':
+        data = request.form
+        print(f'Submission : {data.get("name")} | {data.get("email")} | {data.get("phone")} | {data.get("message")}')
+        msg_sent = True
+    return render_template('contact.html', msg_sent=msg_sent)
 
 @app.route('/post/<int:blog_id>')
 def post_blog(blog_id):
