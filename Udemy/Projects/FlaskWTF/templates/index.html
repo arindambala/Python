@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Secret{% endblock %}
+
+{% block content %}
+
+<div class="p-5 mb-4 bg-white rounded-3 shadow text-center">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Welcome</h1>
+        <p class="fs-4 text-muted">Ready to discover a secret?</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('login') }}">Login</a>
+    </div>
+</div>
+
+{% endblock %}
