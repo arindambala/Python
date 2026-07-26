@@ -1,0 +1,30 @@
+body {
+    background-color: #212529;
+    color: #f8f9fa;
+    min-height: 100vh;
+}
+
+a {
+    color: #ffc107;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffcd39;
+    text-decoration: underline;
+}
+
+.hero-section {
+    min-height: 100vh;
+    background-color: #212529;
+}
+
+.space-above {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+}
+
+.card label {
+    color: #ffffff;
+    font-weight: 500;
+}
