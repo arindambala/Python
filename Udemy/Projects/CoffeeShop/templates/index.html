@@ -1,1 +1,18 @@
 {% extends 'base.html' %}
+{% block title %}Coffee & WiFi - Home{% endblock %}
+
+{% block content %}
+
+<div class="hero-section text-center d-flex align-items-center justify-content-center">
+    <div class="container">
+        <h1 class="display-3 fw-bold mb-3">☕ Coffee & WiFi 💻</h1>
+        <p class="lead mb-4">Want to work in a cafe but need power sockets & reliable Wi-Fi?</p>
+        <hr class="my-4 border-light opacity-25" />
+        <p class="mb-4 text-light">Explore a curated collection of remote-friendly cafes with real metrics on power
+            availability, Wi-Fi speeds & coffee quality.</p>
+        <a class="btn btn-warning btn-lg px-4 gap-3 fw-semibold" href="{{ url_for('cafes') }} " role="button">Show
+            Me!</a>
+    </div>
+</div>
+
+{% endblock %}
