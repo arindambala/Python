@@ -177,6 +177,7 @@ p.overview {
     position: relative;
     transform-style: preserve-3d;
     transition: 300ms ease;
+    text-decoration: none;
 }
 
 .button:before {

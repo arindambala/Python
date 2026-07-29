@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block title %}Add{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="heading">Add a Movie</h1>
+            <p class="description">Search for a movie title to add to your top 10 list.</p>
+
+            {{ render_form(form, novalidate=True) }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
