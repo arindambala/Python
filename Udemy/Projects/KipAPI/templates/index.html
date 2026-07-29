@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>RESTful</title>
+
+    {{ bootstrap.load_css() }}
 </head>
 
-<body>
-    <h1>Welcome to Cafe & Wi-Fi API</h1>
+<body class="container text-center mt-5">
+    <h1 class="mb-4">Welcome to Cafe & Wi-Fi API</h1>
+
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="{{ url_for('cafe') }}" class="btn btn-primary btn-lg px-4 gap-3" target="_blank">Get Random Cafe</a>
+    </div>
+
+    {{ bootstrap.load_js() }}
 </body>
 
 </html>
