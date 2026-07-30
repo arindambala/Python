@@ -17,6 +17,7 @@ if ENV_FILE.exists():
     load_dotenv(ENV_FILE)
 
 DB_URL = os.getenv('SQLALCHEMY_DATABASE_URI')
+API_KEY = os.getenv('API_KEY')
 
 print(f'\n---- RESTful ^ API ----\n')
 
@@ -25,6 +26,7 @@ bootstrap = Bootstrap5(app)
 
 class Base(DeclarativeBase):
     pass
+
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
@@ -59,6 +61,90 @@ def cafe():
     random_cafe = random.choice(cafe_list)
     
     return jsonify(cafe=random_cafe.to_dict())
+
+@app.route('/all')
+def cafes():
+    query = db.session.execute(db.select(Cafe).order_by(Cafe.name))
+    cafe_list = query.scalars().all()
+    
+    return jsonify(cafes=[cafe.to_dict() for cafe in cafe_list])
+
+@app.route('/search')
+def loc():
+    query_location = request.args.get('loc')
+    
+    cafe_loc = db.session.execute(db.select(Cafe).where(Cafe.location.ilike(f'%{query_location}%')))
+    cafe_list = cafe_loc.scalars().all()
+    
+    if not cafe_list:
+        return jsonify(error = {
+            "Not Found": f"Apologies! We don't have a cafe at that location! ({query_location})"
+        }), 404
+    
+    return jsonify(cafes=[cafe.to_dict() for cafe in cafe_list])
+
+@app.route('/add', methods=['POST'])
+def add():
+    new_cafe = Cafe(
+        name = request.form.get('name'),
+        map_url = request.form.get('map_url'),
+        img_url = request.form.get('img_url'),
+        location = request.form.get('location'),
+        seats = request.form.get('seats'),
+        has_toilet = bool(request.form.get('has_toilet')),
+        has_wifi = bool(request.form.get('has_wifi')),
+        has_sockets = bool(request.form.get('has_sockets')),
+        can_take_calls = bool(request.form.get('can_take_calls')),
+        coffee_price = request.form.get('coffee_price')
+    )
+    db.session.add(new_cafe)
+    db.session.commit()
+    
+    return jsonify(response = {
+        "Success": "Successfully added the new cafe!"
+    })
+
+@app.route('/update/<int:cafe_id>', methods=['PATCH'])
+def update(cafe_id):
+    query_price = request.args.get('new_price')
+    cafe = db.session.get(Cafe, cafe_id)
+    
+    if cafe:
+        cafe.coffee_price = query_price
+        db.session.commit()
+        
+        return jsonify(response = {
+            "Success": "Successfully updated the coffee price!"
+        }), 200
+    
+    else:
+        return jsonify(error = {
+            "Not Found": "Apologies! We don't have a cafe with that id in the database!"
+        }), 404
+
+@app.route('/delete/<int:cafe_id>', methods=['DELETE'])
+def delete(cafe_id):
+    query_key = request.args.get('api_key')
+    cafe = db.session.get(Cafe, cafe_id)
+    
+    if query_key != API_KEY:
+        return jsonify(error = {
+            "Forbidden": "Abort! Invalid API key provided!"
+        }), 403
+    
+    else:
+        if not cafe:
+            return jsonify(response = {
+                "Not Found": "Apologies! We don't have a cafe with that id in the database!"
+            }), 404
+        
+        else:
+            db.session.delete(cafe)
+            db.session.commit()
+            
+            return jsonify(response = {
+                "Success": "Successfully deleted the cafe from the database!"
+            }), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
