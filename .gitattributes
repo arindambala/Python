@@ -1,2 +1,5 @@
 # Ignore vendor CSS for the BlogSite folder
 Udemy/Projects/BlogSite/static/css/styles.css linguist-vendored
+
+# Ignore vendor CSS for the EchoPen folder
+Udemy/Projects/EchoPen/static/css/styles.css linguist-vendored
