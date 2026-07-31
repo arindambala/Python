@@ -208,6 +208,7 @@ __marimo__/
 
 # Visual Studio Code folder | files
 .vscode/
+.pdf
 
 # Databases
 *.db
