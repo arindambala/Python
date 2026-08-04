@@ -209,6 +209,7 @@ __marimo__/
 # Visual Studio Code folder | files
 .vscode/
 **/*.pdf
+Udemy/Projects/GraphPlt/QueryResults.csv
 
 # Databases
 *.db
