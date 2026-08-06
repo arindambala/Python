@@ -210,6 +210,8 @@ __marimo__/
 .vscode/
 **/*.pdf
 Udemy/Projects/GraphPlt/QueryResults.csv
+Udemy/Projects/YuLego/data
+Udemy/Projects/VisTrend/data
 
 # Databases
 *.db
