@@ -3,3 +3,6 @@ Udemy/Projects/BlogSite/static/css/styles.css linguist-vendored
 
 # Ignore vendor CSS for the EchoPen folder
 Udemy/Projects/EchoPen/static/css/styles.css linguist-vendored
+
+#Ignore inline JS for the StorePlt folder
+Udemy/Projects/StorePlt linguist-vendored
