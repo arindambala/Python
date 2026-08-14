@@ -1,11 +1,3 @@
-# Ignore vendor CSS for the BlogSite folder
+# Ignore vendor CSS for the folder
 Udemy/Projects/BlogSite/static/css/styles.css linguist-vendored
-
-# Ignore vendor CSS for the EchoPen folder
 Udemy/Projects/EchoPen/static/css/styles.css linguist-vendored
-
-# Ignore all Jupyter Notebooks across the entire repository from language stats
-*.ipynb linguist-vendored
-
-# Include the .ipynb files for the chosen folder
-Udemy/Projects/ZeroZone/** linguist-vendored=false
