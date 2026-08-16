@@ -12,3 +12,6 @@ Udemy/Projects/XenoFigs/** linguist-detectable=false
 Udemy/Projects/YoloPay/** linguist-detectable=false
 Udemy/Projects/YuLego/** linguist-detectable=false
 Udemy/Projects/ZeroInit/** linguist-detectable=false
+
+# Include .ipynb Jupyter Notebook to linguist stats for the folder
+Udemy/Projects/ZeroZone/** linguist-detectable=true
