@@ -6,5 +6,4 @@ Udemy/Projects/EchoPen/static/css/styles.css linguist-vendored
 *.ipynb linguist-generated
 
 # Include .ipynb Jupyter Notebook to linguist stats for the folder
-Udemy/Projects/ZeroZone/*.ipynb -linguist-generated
-Udemy/Projects/ZeroZone/**/*.ipynb -linguist-generated
+Udemy/Projects/YoloPay/main.ipynb -linguist-generated
